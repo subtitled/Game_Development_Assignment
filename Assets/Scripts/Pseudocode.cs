@@ -70,4 +70,27 @@ CONSTANT
         Message character type and ID to map killed list
         if creature message experience value to experience tally
 
+Camera:
+    (Fixed, whole map)
+    Create list of fixed camera transforms (positions/rotations)
+    currentPosition = list[a].position
+    currentRotation = list[a].rotation
+    On command
+    newPosition = list[b].position
+    newRotation = list[b].rotation
+    Delta current to new position/rotation
+    
+    (Non-fixed, character focused)
+    List of camera offsets(variable X,Z, fixed Y) & rotations (fixed X,Z, variable Y)
+    currentOffset = P_list[a]
+    currentRotation = R_list[a], or simply a Y-axis value
+    At start of each characters turn, focus key pressed:
+    currentPosition = active character + offsets
+    Free panning (X, Z) from that position
+    On command: m = n +/- 1
+    newPosition = currentPosition - currentOffset + newOffset
+    newRotation = R_list[m], or +/- Y value
+    Delta to new position/rotation
+    
+    
 */
