@@ -87,9 +87,10 @@ Camera:
     At start of each characters turn, focus key pressed:
     currentPosition = active character + offsets
     Free panning (X, Z) from that position
-    On command: m = n +/- 1
+    On command:
+    newOffset = P_list[b]
     newPosition = currentPosition - currentOffset + newOffset
-    newRotation = R_list[m], or +/- Y value
+    newRotation = R_list[b], or +/- Y value
     Delta to new position/rotation
     
     
