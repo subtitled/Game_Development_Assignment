@@ -1,15 +1,18 @@
-﻿using System.Collections;
+﻿
+//use this to store stats/abilities for classes/enemies change depending on class/enemy, save as for that class
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class classScript : MonoBehaviour
 {
-    
+    //TODO: TAKE VALUE FROM ABILITY SELECTION SET ints TO VALUE FOR SWITCH STATEMENTS
     //Setup for switch statements (might change later)
-    public int wep_1 = 0;
-    public int wep_2 = 0;
-    public int abil_1 = 0;
-    public int abil_2 = 0;
+    public static int wep_1 = 0;
+    public static int wep_2 = 0;
+    public static int abil_1 = 0;
+    public static int abil_2 = 0;
 
     //Stat setup (might change later)
     public int strength;
@@ -44,7 +47,52 @@ public class classScript : MonoBehaviour
                 //Enter code to set this weapon
                 break;
             default:
+                //deal strength in dmg
+                int range = 1;
+                int dmg = strength * 1;
+                return (dmg, range);
+                break;
+        }
+        switch (wep_2)
+        {
+            case 2:
                 //Enter code to set this weapon
+                break;
+            case 1:
+                //Enter code to set this weapon
+                break;
+            default:
+                //deal strength in dmg
+                int dmg = strength * 1;
+                return dmg;
+                break;
+        }
+        switch (abil_1)
+        {
+            case 2:
+                //Enter code to set this weapon
+                break;
+            case 1:
+                //Enter code to set this weapon
+                break;
+            default:
+                //deal strength in dmg
+                int dmg = strength * 1;
+                return dmg;
+                break;
+        }
+        switch (abil_2)
+        {
+            case 2:
+                //Enter code to set this weapon
+                break;
+            case 1:
+                //Enter code to set this weapon
+                break;
+            default:
+                //deal strength in dmg
+                int dmg = strength * 1;
+                return dmg;
                 break;
         }
     }
