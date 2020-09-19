@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/mainMenu.unity
+    guid: 08d46c21cecbf4f43a7735dbac25f18c
+  - enabled: 1
+    path: Assets/Scenes/teamSelection.unity
+    guid: 472fc6c96ef41c14c9f08a1effa8bcbc
+  - enabled: 1
+    path: Assets/Scenes/loadoutSelection.unity
+    guid: 1bf6f014a40dd764e9e069e7a24e069a
+  - enabled: 1
+    path: Assets/Scenes/selectMap.unity
+    guid: c834b845379d6fa49bccdc7436cb814c
+  - enabled: 1
+    path: Assets/Scenes/map1.unity
+    guid: 468679ed73a395942851b04f6b396b44
   m_configObjects: {}

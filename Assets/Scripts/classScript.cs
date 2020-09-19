@@ -50,7 +50,6 @@ public class classScript : MonoBehaviour
                 //deal strength in dmg
                 int range = 1;
                 int dmg = strength * 1;
-                return (dmg, range);
                 break;
         }
         switch (wep_2)
@@ -64,7 +63,6 @@ public class classScript : MonoBehaviour
             default:
                 //deal strength in dmg
                 int dmg = strength * 1;
-                return dmg;
                 break;
         }
         switch (abil_1)
@@ -78,7 +76,6 @@ public class classScript : MonoBehaviour
             default:
                 //deal strength in dmg
                 int dmg = strength * 1;
-                return dmg;
                 break;
         }
         switch (abil_2)
@@ -92,7 +89,6 @@ public class classScript : MonoBehaviour
             default:
                 //deal strength in dmg
                 int dmg = strength * 1;
-                return dmg;
                 break;
         }
     }
