@@ -65,16 +65,17 @@ public class loadoutDropdown : MonoBehaviour
 
     void Start()
     {
+        //loading ints for what classes were chose for displaying ability choices
         unitOne = PlayerPrefs.GetInt("UnitOne");
         unitTwo = PlayerPrefs.GetInt("UnitTwo");
         unitThree = PlayerPrefs.GetInt("UnitThree");
         unitFour = PlayerPrefs.GetInt("UnitFour");
         unitFive = PlayerPrefs.GetInt("UnitFive");
-        //do this for every unit with switches for every class
+       
+        //switch statements to find what abilities to load into the dropdown menus based on the values stored in playerprefs
         switch (unitOne)
         {
             case 0:
-
                 u1w1.ClearOptions();
                 u1w1.AddOptions(war_wep1);
                 u1w2.ClearOptions();
@@ -84,11 +85,534 @@ public class loadoutDropdown : MonoBehaviour
                 u1a2.ClearOptions();
                 u1a2.AddOptions(war_ab2);
                 break;
+            case 1:
+                u1w1.ClearOptions();
+                u1w1.AddOptions(pri_wep1);
+                u1w2.ClearOptions();
+                u1w2.AddOptions(pri_wep2);
+                u1a1.ClearOptions();
+                u1a1.AddOptions(pri_ab1);
+                u1a2.ClearOptions();
+                u1a2.AddOptions(pri_ab2);
+                break;
+            case 2:
+                u1w1.ClearOptions();
+                u1w1.AddOptions(mag_wep1);
+                u1w2.ClearOptions();
+                u1w2.AddOptions(mag_wep2);
+                u1a1.ClearOptions();
+                u1a1.AddOptions(mag_ab1);
+                u1a2.ClearOptions();
+                u1a2.AddOptions(mag_ab2);
+                break;
+            case 3:
+                u1w1.ClearOptions();
+                u1w1.AddOptions(rog_wep1);
+                u1w2.ClearOptions();
+                u1w2.AddOptions(rog_wep2);
+                u1a1.ClearOptions();
+                u1a1.AddOptions(rog_ab1);
+                u1a2.ClearOptions();
+                u1a2.AddOptions(rog_ab2);
+                break;
+            case 4:
+                u1w1.ClearOptions();
+                u1w1.AddOptions(mar_wep1);
+                u1w2.ClearOptions();
+                u1w2.AddOptions(mar_wep2);
+                u1a1.ClearOptions();
+                u1a1.AddOptions(mar_ab1);
+                u1a2.ClearOptions();
+                u1a2.AddOptions(mar_ab2);
+                break;
         }
-
+        switch (unitTwo)
+        {
+            case 0:
+                u2w1.ClearOptions();
+                u2w1.AddOptions(war_wep1);
+                u2w2.ClearOptions();
+                u2w2.AddOptions(war_wep2);
+                u2a1.ClearOptions();
+                u2a1.AddOptions(war_ab1);
+                u2a2.ClearOptions();
+                u2a2.AddOptions(war_ab2);
+                break;
+            case 1:
+                u2w1.ClearOptions();
+                u2w1.AddOptions(pri_wep1);
+                u2w2.ClearOptions();
+                u2w2.AddOptions(pri_wep2);
+                u2a1.ClearOptions();
+                u2a1.AddOptions(pri_ab1);
+                u2a2.ClearOptions();
+                u2a2.AddOptions(pri_ab2);
+                break;
+            case 2:
+                u2w1.ClearOptions();
+                u2w1.AddOptions(mag_wep1);
+                u2w2.ClearOptions();
+                u2w2.AddOptions(mag_wep2);
+                u2a1.ClearOptions();
+                u2a1.AddOptions(mag_ab1);
+                u2a2.ClearOptions();
+                u2a2.AddOptions(mag_ab2);
+                break;
+            case 3:
+                u2w1.ClearOptions();
+                u2w1.AddOptions(rog_wep1);
+                u2w2.ClearOptions();
+                u2w2.AddOptions(rog_wep2);
+                u2a1.ClearOptions();
+                u2a1.AddOptions(rog_ab1);
+                u2a2.ClearOptions();
+                u2a2.AddOptions(rog_ab2);
+                break;
+            case 4:
+                u2w1.ClearOptions();
+                u2w1.AddOptions(mar_wep1);
+                u2w2.ClearOptions();
+                u2w2.AddOptions(mar_wep2);
+                u2a1.ClearOptions();
+                u2a1.AddOptions(mar_ab1);
+                u2a2.ClearOptions();
+                u2a2.AddOptions(mar_ab2);
+                break;
+        }
+        switch (unitThree)
+        {
+            case 0:
+                u3w1.ClearOptions();
+                u3w1.AddOptions(war_wep1);
+                u3w2.ClearOptions();
+                u3w2.AddOptions(war_wep2);
+                u3a1.ClearOptions();
+                u3a1.AddOptions(war_ab1);
+                u3a2.ClearOptions();
+                u3a2.AddOptions(war_ab2);
+                break;
+            case 1:
+                u3w1.ClearOptions();
+                u3w1.AddOptions(pri_wep1);
+                u3w2.ClearOptions();
+                u3w2.AddOptions(pri_wep2);
+                u3a1.ClearOptions();
+                u3a1.AddOptions(pri_ab1);
+                u3a2.ClearOptions();
+                u3a2.AddOptions(pri_ab2);
+                break;
+            case 2:
+                u3w1.ClearOptions();
+                u3w1.AddOptions(mag_wep1);
+                u3w2.ClearOptions();
+                u3w2.AddOptions(mag_wep2);
+                u3a1.ClearOptions();
+                u3a1.AddOptions(mag_ab1);
+                u3a2.ClearOptions();
+                u3a2.AddOptions(mag_ab2);
+                break;
+            case 3:
+                u3w1.ClearOptions();
+                u3w1.AddOptions(rog_wep1);
+                u3w2.ClearOptions();
+                u3w2.AddOptions(rog_wep2);
+                u3a1.ClearOptions();
+                u3a1.AddOptions(rog_ab1);
+                u3a2.ClearOptions();
+                u3a2.AddOptions(rog_ab2);
+                break;
+            case 4:
+                u3w1.ClearOptions();
+                u3w1.AddOptions(mar_wep1);
+                u3w2.ClearOptions();
+                u3w2.AddOptions(mar_wep2);
+                u3a1.ClearOptions();
+                u3a1.AddOptions(mar_ab1);
+                u3a2.ClearOptions();
+                u3a2.AddOptions(mar_ab2);
+                break;
+        }
+        switch (unitFour)
+        {
+            case 0:
+                u4w1.ClearOptions();
+                u4w1.AddOptions(war_wep1);
+                u4w2.ClearOptions();
+                u4w2.AddOptions(war_wep2);
+                u4a1.ClearOptions();
+                u4a1.AddOptions(war_ab1);
+                u4a2.ClearOptions();
+                u4a2.AddOptions(war_ab2);
+                break;
+            case 1:
+                u4w1.ClearOptions();
+                u4w1.AddOptions(pri_wep1);
+                u4w2.ClearOptions();
+                u4w2.AddOptions(pri_wep2);
+                u4a1.ClearOptions();
+                u4a1.AddOptions(pri_ab1);
+                u4a2.ClearOptions();
+                u4a2.AddOptions(pri_ab2);
+                break;
+            case 2:
+                u4w1.ClearOptions();
+                u4w1.AddOptions(mag_wep1);
+                u4w2.ClearOptions();
+                u4w2.AddOptions(mag_wep2);
+                u4a1.ClearOptions();
+                u4a1.AddOptions(mag_ab1);
+                u4a2.ClearOptions();
+                u4a2.AddOptions(mag_ab2);
+                break;
+            case 3:
+                u4w1.ClearOptions();
+                u4w1.AddOptions(rog_wep1);
+                u4w2.ClearOptions();
+                u4w2.AddOptions(rog_wep2);
+                u4a1.ClearOptions();
+                u4a1.AddOptions(rog_ab1);
+                u4a2.ClearOptions();
+                u4a2.AddOptions(rog_ab2);
+                break;
+            case 4:
+                u4w1.ClearOptions();
+                u4w1.AddOptions(mar_wep1);
+                u4w2.ClearOptions();
+                u4w2.AddOptions(mar_wep2);
+                u4a1.ClearOptions();
+                u4a1.AddOptions(mar_ab1);
+                u4a2.ClearOptions();
+                u4a2.AddOptions(mar_ab2);
+                break;
+        }
+        switch (unitFive)
+        {
+            case 0:
+                u5w1.ClearOptions();
+                u5w1.AddOptions(war_wep1);
+                u5w2.ClearOptions();
+                u5w2.AddOptions(war_wep2);
+                u5a1.ClearOptions();
+                u5a1.AddOptions(war_ab1);
+                u5a2.ClearOptions();
+                u5a2.AddOptions(war_ab2);
+                break;
+            case 1:
+                u5w1.ClearOptions();
+                u5w1.AddOptions(pri_wep1);
+                u5w2.ClearOptions();
+                u5w2.AddOptions(pri_wep2);
+                u5a1.ClearOptions();
+                u5a1.AddOptions(pri_ab1);
+                u5a2.ClearOptions();
+                u5a2.AddOptions(pri_ab2);
+                break;
+            case 2:
+                u5w1.ClearOptions();
+                u5w1.AddOptions(mag_wep1);
+                u5w2.ClearOptions();
+                u5w2.AddOptions(mag_wep2);
+                u5a1.ClearOptions();
+                u5a1.AddOptions(mag_ab1);
+                u5a2.ClearOptions();
+                u5a2.AddOptions(mag_ab2);
+                break;
+            case 3:
+                u5w1.ClearOptions();
+                u5w1.AddOptions(rog_wep1);
+                u5w2.ClearOptions();
+                u5w2.AddOptions(rog_wep2);
+                u5a1.ClearOptions();
+                u5a1.AddOptions(rog_ab1);
+                u5a2.ClearOptions();
+                u5a2.AddOptions(rog_ab2);
+                break;
+            case 4:
+                u5w1.ClearOptions();
+                u5w1.AddOptions(mar_wep1);
+                u5w2.ClearOptions();
+                u5w2.AddOptions(mar_wep2);
+                u5a1.ClearOptions();
+                u5a1.AddOptions(mar_ab1);
+                u5a2.ClearOptions();
+                u5a2.AddOptions(mar_ab2);
+                break;
+        }
     }
-    public void GetU1W1()
+
+    //getting values of dropdown menu to save for later for Unit 1
+    public void GetU1W1(int w1num)
     {
+        switch (w1num)
+        {
+            case 0:
+                u1w1.value = 0;
+                break;
+            case 1:
+                u1w1.value = 1;
+                break;
+        }
+    }
+    public void GetU1W2(int w2num)
+    {
+        switch (w2num)
+        {
+            case 0:
+                u1w2.value = 0;
+                break;
+            case 1:
+                u1w2.value = 1;
+                break;
+        }
+    }
+    public void GetU1A1(int a1num)
+    {
+        switch (a1num)
+        {
+            case 0:
+                u1a1.value = 0;
+                break;
+            case 1:
+                u1a1.value = 1;
+                break;
+        }
+    }
+    public void GetU1A2(int a2num)
+    {
+        switch (a2num)
+        {
+            case 0:
+                u1a2.value = 0;
+                break;
+            case 1:
+                u1a2.value = 1;
+                break;
+        }
+    }
+
+    //getting values of dropdown menu to save for later for Unit 2
+    public void GetU2W1(int w1num)
+    {
+        switch (w1num)
+        {
+            case 0:
+                u2w1.value = 0;
+                break;
+            case 1:
+                u2w1.value = 1;
+                break;
+        }
+    }
+    public void GetU2W2(int w2num)
+    {
+        switch (w2num)
+        {
+            case 0:
+                u2w2.value = 0;
+                break;
+            case 1:
+                u2w2.value = 1;
+                break;
+        }
+    }
+    public void GetU2A1(int a1num)
+    {
+        switch (a1num)
+        {
+            case 0:
+                u2a1.value = 0;
+                break;
+            case 1:
+                u2a1.value = 1;
+                break;
+        }
+    }
+    public void GetU2A2(int a2num)
+    {
+        switch (a2num)
+        {
+            case 0:
+                u2a2.value = 0;
+                break;
+            case 1:
+                u2a2.value = 1;
+                break;
+        }
+    }
+
+    //getting values of dropdown menu to save for later for Unit 3
+    public void GetU3W1(int w1num)
+    {
+        switch (w1num)
+        {
+            case 0:
+                u3w1.value = 0;
+                break;
+            case 1:
+                u3w1.value = 1;
+                break;
+        }
+    }
+    public void GetU3W2(int w2num)
+    {
+        switch (w2num)
+        {
+            case 0:
+                u3w2.value = 0;
+                break;
+            case 1:
+                u3w2.value = 1;
+                break;
+        }
+    }
+    public void GetU3A1(int a1num)
+    {
+        switch (a1num)
+        {
+            case 0:
+                u3a1.value = 0;
+                break;
+            case 1:
+                u3a1.value = 1;
+                break;
+        }
+    }
+    public void GetU3A2(int a2num)
+    {
+        switch (a2num)
+        {
+            case 0:
+                u3a2.value = 0;
+                break;
+            case 1:
+                u3a2.value = 1;
+                break;
+        }
+    }
+
+    //getting values of dropdown menu to save for later for Unit 4
+    public void GetU4W1(int w1num)
+    {
+        switch (w1num)
+        {
+            case 0:
+                u4w1.value = 0;
+                break;
+            case 1:
+                u4w1.value = 1;
+                break;
+        }
+    }
+    public void GetU4W2(int w2num)
+    {
+        switch (w2num)
+        {
+            case 0:
+                u4w2.value = 0;
+                break;
+            case 1:
+                u4w2.value = 1;
+                break;
+        }
+    }
+    public void GetU4A1(int a1num)
+    {
+        switch (a1num)
+        {
+            case 0:
+                u4a1.value = 0;
+                break;
+            case 1:
+                u4a1.value = 1;
+                break;
+        }
+    }
+    public void GetU4A2(int a2num)
+    {
+        switch (a2num)
+        {
+            case 0:
+                u4a2.value = 0;
+                break;
+            case 1:
+                u4a2.value = 1;
+                break;
+        }
+    }
+
+    //getting values of dropdown menu to save for later for Unit 5
+    public void GetU5W1(int w1num)
+    {
+        switch (w1num)
+        {
+            case 0:
+                u5w1.value = 0;
+                break;
+            case 1:
+                u5w1.value = 1;
+                break;
+        }
+    }
+    public void GetU5W2(int w2num)
+    {
+        switch (w2num)
+        {
+            case 0:
+                u5w2.value = 0;
+                break;
+            case 1:
+                u5w2.value = 1;
+                break;
+        }
+    }
+    public void GetU5A1(int a1num)
+    {
+        switch (a1num)
+        {
+            case 0:
+                u5a1.value = 0;
+                break;
+            case 1:
+                u5a1.value = 1;
+                break;
+        }
+    }
+    public void GetU5A2(int a2num)
+    {
+        switch (a2num)
+        {
+            case 0:
+                u5a2.value = 0;
+                break;
+            case 1:
+                u5a2.value = 1;
+                break;
+        }
+    }
+
+    //Code for saving ability choices as an int to load when the game starts
+    public void SaveLoadout()
+    {
+        PlayerPrefs.SetInt("U1W1", u1w1.value);
+        PlayerPrefs.SetInt("U1W2", u1w2.value);
+        PlayerPrefs.SetInt("U1A1", u1a1.value);
+        PlayerPrefs.SetInt("U1A2", u1a2.value);
+        PlayerPrefs.SetInt("U2W1", u2w1.value);
+        PlayerPrefs.SetInt("U2W2", u2w2.value);
+        PlayerPrefs.SetInt("U2A1", u2a1.value);
+        PlayerPrefs.SetInt("U2A2", u2a2.value);
+        PlayerPrefs.SetInt("U3W1", u3w1.value);
+        PlayerPrefs.SetInt("U3W2", u3w2.value);
+        PlayerPrefs.SetInt("U3A1", u3a1.value);
+        PlayerPrefs.SetInt("U3A2", u3a2.value);
+        PlayerPrefs.SetInt("U4W1", u4w1.value);
+        PlayerPrefs.SetInt("U4W2", u4w2.value);
+        PlayerPrefs.SetInt("U4A1", u4a1.value);
+        PlayerPrefs.SetInt("U4A2", u4a2.value);
+        PlayerPrefs.SetInt("U5W1", u5w1.value);
+        PlayerPrefs.SetInt("U5W2", u5w2.value);
+        PlayerPrefs.SetInt("U5A1", u5a1.value);
+        PlayerPrefs.SetInt("U5A2", u5a2.value);
 
     }
 }
