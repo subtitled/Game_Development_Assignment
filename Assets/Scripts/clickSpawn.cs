@@ -23,19 +23,13 @@ public class clickSpawn : MonoBehaviour
     {
         //CHECK AMMO SCRIPT FOR IDEA HOW TO SPAWN LIMITED AMOUNT OF UNITS
         myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        int i = 0;
-        while (i < 5)
-        {
-
-            if (Physics.Raycast(myRay, out hit))
+        if (Physics.Raycast(myRay, out hit))
             {
                 if (Input.GetMouseButtonDown(0))
                 {
                     Instantiate(charModel, hit.point, Quaternion.identity);
                 }
             }
-            i++;
-        }
     }
 
 }

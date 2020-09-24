@@ -90,9 +90,9 @@ public class TurnControl : MonoBehaviour
             // Need to add the initiative to the classScript, or from a common basic values script.
             
             // Get and randomise initiative, add to initiativeOrder.
-            character.gameObject.GetComponent<classScript>().turnInitiative = 
-                character.gameObject.GetComponent<classScript>().baseInitiative * Random.Range(0.7f, 1.3f);
-            initiativeOrder.Add(character);
+            //character.gameObject.GetComponent<classScript>().turnInitiative = 
+                //character.gameObject.GetComponent<classScript>().baseInitiative * Random.Range(0.7f, 1.3f);
+            //initiativeOrder.Add(character);
             
         }
         
