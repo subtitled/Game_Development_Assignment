@@ -16,6 +16,8 @@ MonoBehaviour:
   agility: 0
   health: 0
   movement: 3
+  classNum: 3
+  unitNum: 0
 --- !u!1001 &1454776273099141335
 PrefabInstance:
   m_ObjectHideFlags: 0

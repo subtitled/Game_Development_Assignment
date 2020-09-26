@@ -16,6 +16,8 @@ MonoBehaviour:
   agility: 0
   health: 0
   movement: 3
+  classNum: 1
+  unitNum: 0
 --- !u!1001 &2175472946630380547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,7 +27,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Name
-      value: ThirdPersonController
+      value: Priest
       objectReference: {fileID: 0}
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_LocalPosition.x

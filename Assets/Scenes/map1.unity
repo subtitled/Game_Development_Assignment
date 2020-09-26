@@ -7898,6 +7898,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Priest
       objectReference: {fileID: 0}
+    - target: {fileID: 2175472946630493469, guid: 3e49765c8091a9744b5910d74f06d1ca,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2175472946630783129, guid: 3e49765c8091a9744b5910d74f06d1ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11323,6 +11328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454776273099291081, guid: ec46a3d56933e644ab2eda5b8feb8e0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec46a3d56933e644ab2eda5b8feb8e0b, type: 3}
@@ -19568,6 +19578,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 2612437203687725148, guid: 06036b259d035d448b06021294ed1474,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2612437203687976408, guid: 06036b259d035d448b06021294ed1474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21656,6 +21671,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage
       objectReference: {fileID: 0}
+    - target: {fileID: 3986991709558798049, guid: be17eb2e206aa864a8916afaca14930b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be17eb2e206aa864a8916afaca14930b, type: 3}
 --- !u!1001 &1240439241
@@ -23060,6 +23080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Marksman
+      objectReference: {fileID: 0}
+    - target: {fileID: 729398650761193778, guid: 357e89f569c51c64fa24e33026b745f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 729398650771980884, guid: 357e89f569c51c64fa24e33026b745f9,
         type: 3}

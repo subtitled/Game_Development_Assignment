@@ -17,16 +17,64 @@ public class classScript : MonoBehaviour
     //Stat setup (might change later)
     public int strength;
     public int agility;
+    public int intelligence;
     public int health;
-    public int movement = 3; //change depending on class
+    public int movement;
+    public int initiative; //change depending on class
+
+    //extra setup for referencing
+    public int classNum;
+    public int unitNum;
 
     // Start is called before the first frame update
     void Start()
     {
+        switch (classNum) 
+        {
+            case 0: //warrior
+                strength = Random.Range(7, 9);
+                agility = Random.Range(5, 7);
+                intelligence = Random.Range(2, 5);
+                health = Random.Range(110, 130);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                break;
+            case 1: //priest
+                strength = Random.Range(5, 7);
+                agility = Random.Range(5, 7);
+                intelligence = Random.Range(6, 8);
+                health = Random.Range(100, 120);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                break;
+            case 2: //mage
+                strength = Random.Range(2, 5);
+                agility = Random.Range(6, 8);
+                intelligence = Random.Range(7, 9);
+                health = Random.Range(90, 110);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                break;
+            case 3: //rogue
+                strength = Random.Range(6, 8);
+                agility = Random.Range(7, 9);
+                intelligence = Random.Range(5, 6);
+                health = Random.Range(100, 110);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                break;
+            case 4: //marksman
+                strength = Random.Range(2, 5);
+                agility = Random.Range(6, 8);
+                intelligence = Random.Range(2, 5);
+                health = Random.Range(90, 110);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                break;
+
+        }
         //generates stats for classes (change value ranges based on class)
-        strength = Random.Range(6,9);
-        agility = Random.Range(5,7);
-        health = Random.Range(100, 130);
+
         
     }
 
