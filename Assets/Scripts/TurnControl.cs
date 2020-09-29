@@ -34,7 +34,7 @@ public class TurnControl : MonoBehaviour
     // Character listings.
     private GameObject[] enemyCharacters;
     private GameObject[] playerCharacters;
-    private List<GameObject> initiativeOrder;
+    private List<GameObject> initiativeOrder = new List<GameObject>();
     private bool activeCharacter = false;
     private int characterOrder = 0;
 
@@ -73,7 +73,7 @@ public class TurnControl : MonoBehaviour
             initiativeOrder.Add(character);
             
             // For random placement of enemies across designated points.
-            while(true)
+            /*while(true)
             {
                 int spawnPosition = Random.Range(0, spawnPoints.Length);
                 if (!usedSpawns.Contains(spawnPosition))
@@ -82,9 +82,10 @@ public class TurnControl : MonoBehaviour
                     usedSpawns.Add(spawnPosition);
                     break;
                 }
-            }
+            }*/
         }
-
+        
+        
         foreach (var character in playerCharacters)
         { 
             // Need to add the initiative to the classScript, or from a common basic values script.
@@ -107,6 +108,7 @@ public class TurnControl : MonoBehaviour
                 return (o.GetComponent<enemyFSM>().turnInitiative).CompareTo(o1.GetComponent<enemyFSM>()
                     .turnInitiative);
             });
+            initiativeOrder.Reverse();
         }
         
         
@@ -118,6 +120,7 @@ public class TurnControl : MonoBehaviour
         
         turnCount = 1;
         currState = FSMturn.Wait;
+        print("Start Turn " + turnCount);
 
     }
 
@@ -189,6 +192,7 @@ public class TurnControl : MonoBehaviour
 
             if (characterOrder < initiativeOrder.Count)
             {
+                print("Activating " + initiativeOrder[characterOrder].name);
                 initiativeOrder[characterOrder].SendMessage("ApplyActiveStatus", true);
                 activeCharacter = true;
                 characterOrder += 1;
@@ -208,9 +212,11 @@ public class TurnControl : MonoBehaviour
         
         characterOrder = 0;
         turnCount += 1;
-        
+        currState = FSMturn.Wait;
+        print("Start Turn " + turnCount);
+
         // UI End Turn and Turn Start Effects.
-        
+
     }
 
     protected void UpdateVictoryState()
@@ -237,6 +243,10 @@ public class TurnControl : MonoBehaviour
         
         // No bonus XP?
         // Method of determining which classes are present, and dividing only among them?
+        // Can solve with hashset,
+        // if HashSet.contains(ClassID integer){
+        //     class#XP += generalXP / HashSet.Length
+        // }
         class1XP += generalXP / 5;
         class2XP += generalXP / 5;
         class3XP += generalXP / 5;

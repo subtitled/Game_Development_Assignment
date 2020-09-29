@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,8 +31,8 @@ public class enemyFSM : MonoBehaviour
     private bool action = false;
     private bool move = false;
 
-    public float alertRange = 50.0f;
-    public float engagedRange = 35.0f;
+    public float alertRange = 20.0f;
+    public float engagedRange = 10.0f;
     //public float movementRange = 10.0f;
     //public float moveSpeed = 12.0f;
     //public float rotSpeed = 4.0f;
@@ -230,6 +231,7 @@ public class enemyFSM : MonoBehaviour
         {
             action = true;
             move = true;
+            print(name + " activated");
         }
     }
 
@@ -246,5 +248,12 @@ public class enemyFSM : MonoBehaviour
             currState = FSMstate.Dead;
         }
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, alertRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, engagedRange);
+    }
 }
