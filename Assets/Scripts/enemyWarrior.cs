@@ -40,8 +40,9 @@ public class enemyWarrior : MonoBehaviour
 
         isDead = false;
 
+        //TODO find closest player unit
         playerUnits = GameObject.FindGameObjectsWithTag("Player");
-        getClosestPlayer(playerUnits);
+        getClosestPlayer();
 
         //Setting stat values
         strength = Random.Range(7, 9);
@@ -59,6 +60,7 @@ public class enemyWarrior : MonoBehaviour
         {
             case FSMState.Idle: UpdateIdleState(); break;
             case FSMState.Move: UpdateMoveState(); break;
+            case FSMState.Defend: UpdateDefendState(); break;
             case FSMState.Wep1: UpdateWep1State(); break;
             case FSMState.Wep2: UpdateWep2State(); break;
             case FSMState.Abil1: UpdateAbil1State(); break;
@@ -69,6 +71,7 @@ public class enemyWarrior : MonoBehaviour
 
     }
 
+    //TODO find closest player unit
     Transform getClosestPlayer(Transform[] players)
     {
         Transform transformMin = null;
@@ -84,5 +87,45 @@ public class enemyWarrior : MonoBehaviour
             }
         }
         return transformMin;
+    }
+
+    void UpdateIdleState() 
+    {
+        
+    }
+
+    void UpdateMoveState()
+    {
+
+    }
+
+    void UpdateDefendState()
+    {
+
+    }
+
+    void UpdateWep1State()
+    {
+
+    }
+
+    void UpdateWep2State()
+    {
+
+    }
+
+    void UpdateAbil1State()
+    {
+
+    }
+
+    void UpdateAbil2State()
+    {
+
+    }
+
+    void UpdateDeadState()
+    {
+
     }
 }
