@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class enemyWarrior : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class enemyWarrior : MonoBehaviour
     }
 
     public FSMState curState;
+    public FSMState prevState;
 
     protected bool isDead;
     protected GameObject[] playerUnits;
@@ -42,7 +44,7 @@ public class enemyWarrior : MonoBehaviour
 
         //TODO find closest player unit
         playerUnits = GameObject.FindGameObjectsWithTag("Player");
-        getClosestPlayer();
+        //getClosestPlayer();
 
         //Setting stat values
         strength = Random.Range(7, 9);
@@ -91,22 +93,30 @@ public class enemyWarrior : MonoBehaviour
 
     void UpdateIdleState() 
     {
-        
+        //stop doing things
+        //if prevState was defend or attack end turn
     }
 
     void UpdateMoveState()
     {
-
+        //set coordinates to move to
+        //prevState = FSMState.Move;
+        //go back to idle state when movement completes
     }
 
     void UpdateDefendState()
     {
-
+        //reduce next damage (have a flag to see if it is on or not)
+        //prevState = FSMState.Defend;
+        //return to idle
     }
 
     void UpdateWep1State()
     {
-
+        //generate damage
+        //apply damage on click?
+        //prevState = FSMState.Wep1;
+        //return to idel
     }
 
     void UpdateWep2State()
