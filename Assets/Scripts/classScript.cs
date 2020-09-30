@@ -14,6 +14,12 @@ public class classScript : MonoBehaviour
     public int abil_1;
     public int abil_2;
 
+    //setup up for damage numbers
+    public int w1dmg;
+    public int w2dmg;
+    public int a1dmg;
+    public int a2dmg;
+
     //Stat setup (might change later)
     public int strength;
     public int agility;
@@ -29,50 +35,6 @@ public class classScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //generates stats for classes (change value ranges based on class)
-        switch (classNum) 
-        {
-            case 0: //warrior
-                strength = Random.Range(7, 9);
-                agility = Random.Range(5, 7);
-                intelligence = Random.Range(2, 5);
-                health = Random.Range(110, 130);
-                movement = 3;
-                initiative = Random.Range(1, 11) + agility;
-                break;
-            case 1: //priest
-                strength = Random.Range(5, 7);
-                agility = Random.Range(5, 7);
-                intelligence = Random.Range(6, 8);
-                health = Random.Range(100, 120);
-                movement = 3;
-                initiative = Random.Range(1, 11) + agility;
-                break;
-            case 2: //mage
-                strength = Random.Range(2, 5);
-                agility = Random.Range(6, 8);
-                intelligence = Random.Range(7, 9);
-                health = Random.Range(90, 110);
-                movement = 3;
-                initiative = Random.Range(1, 11) + agility;
-                break;
-            case 3: //rogue
-                strength = Random.Range(6, 8);
-                agility = Random.Range(7, 9);
-                intelligence = Random.Range(5, 6);
-                health = Random.Range(100, 110);
-                movement = 3;
-                initiative = Random.Range(1, 11) + agility;
-                break;
-            case 4: //marksman
-                strength = Random.Range(2, 5);
-                agility = Random.Range(6, 8);
-                intelligence = Random.Range(2, 5);
-                health = Random.Range(90, 110);
-                movement = 3;
-                initiative = Random.Range(1, 11) + agility;
-                break;
-        }
         switch (unitNum)
         {
             case 0:
@@ -107,6 +69,231 @@ public class classScript : MonoBehaviour
                 break;
         }
 
+        //generates stats for classes (change value ranges based on class)
+        switch (classNum) 
+        {
+            case 0: //warrior
+                strength = Random.Range(7, 9);
+                agility = Random.Range(5, 7);
+                intelligence = Random.Range(2, 5);
+                health = Random.Range(110, 130);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                switch (wep_1)
+                {
+                    case 0:
+                        w1dmg = 30;
+                        break;
+                    case 1:
+                        w1dmg = 30;
+                        break;
+                }
+                switch (wep_2)
+                {
+                    case 0:
+                        w2dmg = 30;
+                        break;
+                    case 1:
+                        w2dmg = 30;
+                        break;
+                }
+                switch (abil_1)
+                {
+                    case 0:
+                        a1dmg = 30;
+                        break;
+                    case 1:
+                        a1dmg = 30;
+                        break;
+                }
+                switch (abil_2)
+                {
+                    case 0:
+                        a2dmg = 30;
+                        break;
+                    case 1:
+                        a2dmg = 30;
+                        break;
+                }
+                break;
+            case 1: //priest
+                strength = Random.Range(5, 7);
+                agility = Random.Range(5, 7);
+                intelligence = Random.Range(6, 8);
+                health = Random.Range(100, 120);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                switch (wep_1)
+                {
+                    case 0:
+                        w1dmg = 30;
+                        break;
+                    case 1:
+                        w1dmg = 30;
+                        break;
+                }
+                switch (wep_2)
+                {
+                    case 0:
+                        w2dmg = 30;
+                        break;
+                    case 1:
+                        w2dmg = 30;
+                        break;
+                }
+                switch (abil_1)
+                {
+                    case 0:
+                        a1dmg = 30;
+                        break;
+                    case 1:
+                        a1dmg = 30;
+                        break;
+                }
+                switch (abil_2)
+                {
+                    case 0:
+                        a2dmg = 30;
+                        break;
+                    case 1:
+                        a2dmg = 30;
+                        break;
+                }
+                break;
+            case 2: //mage
+                strength = Random.Range(2, 5);
+                agility = Random.Range(6, 8);
+                intelligence = Random.Range(7, 9);
+                health = Random.Range(90, 110);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                switch (wep_1)
+                {
+                    case 0:
+                        w1dmg = 30;
+                        break;
+                    case 1:
+                        w1dmg = 30;
+                        break;
+                }
+                switch (wep_2)
+                {
+                    case 0:
+                        w2dmg = 30;
+                        break;
+                    case 1:
+                        w2dmg = 30;
+                        break;
+                }
+                switch (abil_1)
+                {
+                    case 0:
+                        a1dmg = 30;
+                        break;
+                    case 1:
+                        a1dmg = 30;
+                        break;
+                }
+                switch (abil_2)
+                {
+                    case 0:
+                        a2dmg = 30;
+                        break;
+                    case 1:
+                        a2dmg = 30;
+                        break;
+                }
+                break;
+            case 3: //rogue
+                strength = Random.Range(6, 8);
+                agility = Random.Range(7, 9);
+                intelligence = Random.Range(5, 6);
+                health = Random.Range(100, 110);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                switch (wep_1)
+                {
+                    case 0:
+                        w1dmg = 30;
+                        break;
+                    case 1:
+                        w1dmg = 30;
+                        break;
+                }
+                switch (wep_2)
+                {
+                    case 0:
+                        w2dmg = 30;
+                        break;
+                    case 1:
+                        w2dmg = 30;
+                        break;
+                }
+                switch (abil_1)
+                {
+                    case 0:
+                        a1dmg = 30;
+                        break;
+                    case 1:
+                        a1dmg = 30;
+                        break;
+                }
+                switch (abil_2)
+                {
+                    case 0:
+                        a2dmg = 30;
+                        break;
+                    case 1:
+                        a2dmg = 30;
+                        break;
+                }
+                break;
+            case 4: //marksman
+                strength = Random.Range(2, 5);
+                agility = Random.Range(6, 8);
+                intelligence = Random.Range(2, 5);
+                health = Random.Range(90, 110);
+                movement = 3;
+                initiative = Random.Range(1, 11) + agility;
+                switch (wep_1)
+                {
+                    case 0:
+                        w1dmg = 30;
+                        break;
+                    case 1:
+                        w1dmg = 30;
+                        break;
+                }
+                switch (wep_2)
+                {
+                    case 0:
+                        w2dmg = 30;
+                        break;
+                    case 1:
+                        w2dmg = 30;
+                        break;
+                }
+                switch (abil_1)
+                {
+                    case 0:
+                        a1dmg = 30;
+                        break;
+                    case 1:
+                        a1dmg = 30;
+                        break;
+                }
+                switch (abil_2)
+                {
+                    case 0:
+                        a2dmg = 30;
+                        break;
+                    case 1:
+                        a2dmg = 30;
+                        break;
+                }
+                break;
+        }
+
         
     }
 
@@ -116,60 +303,4 @@ public class classScript : MonoBehaviour
   
     }
 
-    void primaryWeapon()
-    {
-        switch (wep_1)
-        {
-            case 2:
-                //Enter code to set this weapon
-                break;
-            case 1:
-                //Enter code to set this weapon
-                break;
-            default:
-                //deal strength in dmg
-                int range = 1;
-                int dmg = strength * 1;
-                break;
-        }
-        switch (wep_2)
-        {
-            case 2:
-                //Enter code to set this weapon
-                break;
-            case 1:
-                //Enter code to set this weapon
-                break;
-            default:
-                //deal strength in dmg
-                int dmg = strength * 1;
-                break;
-        }
-        switch (abil_1)
-        {
-            case 2:
-                //Enter code to set this weapon
-                break;
-            case 1:
-                //Enter code to set this weapon
-                break;
-            default:
-                //deal strength in dmg
-                int dmg = strength * 1;
-                break;
-        }
-        switch (abil_2)
-        {
-            case 2:
-                //Enter code to set this weapon
-                break;
-            case 1:
-                //Enter code to set this weapon
-                break;
-            default:
-                //deal strength in dmg
-                int dmg = strength * 1;
-                break;
-        }
-    }
 }

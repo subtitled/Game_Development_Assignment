@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class enemyClassScript : MonoBehaviour
 {
+    //damage setup
+    public int w1dmg;
+    public int a1dmg;
 
     //Stat setup (might change later)
     public int strength;
@@ -30,6 +33,8 @@ public class enemyClassScript : MonoBehaviour
                 health = Random.Range(110, 130);
                 movement = 3;
                 initiative = Random.Range(1, 11) + agility;
+                w1dmg = 30;
+                a1dmg = 30;
                 break;
             case 1: //enemyPriest
                 strength = Random.Range(5, 7);
@@ -38,6 +43,8 @@ public class enemyClassScript : MonoBehaviour
                 health = Random.Range(100, 120);
                 movement = 3;
                 initiative = Random.Range(1, 11) + agility;
+                w1dmg = 30;
+                a1dmg = 30;
                 break;
             case 2: //enemyMage
                 strength = Random.Range(2, 5);
@@ -46,6 +53,8 @@ public class enemyClassScript : MonoBehaviour
                 health = Random.Range(90, 110);
                 movement = 3;
                 initiative = Random.Range(1, 11) + agility;
+                w1dmg = 30;
+                a1dmg = 30;
                 break;
             case 3: //enemyRogue
                 strength = Random.Range(6, 8);
@@ -54,6 +63,8 @@ public class enemyClassScript : MonoBehaviour
                 health = Random.Range(100, 110);
                 movement = 3;
                 initiative = Random.Range(1, 11) + agility;
+                w1dmg = 30;
+                a1dmg = 30;
                 break;
             case 4: //enemyMarksman
                 strength = Random.Range(2, 5);
@@ -62,6 +73,8 @@ public class enemyClassScript : MonoBehaviour
                 health = Random.Range(90, 110);
                 movement = 3;
                 initiative = Random.Range(1, 11) + agility;
+                w1dmg = 30;
+                a1dmg = 30;
                 break;
         }
     }
