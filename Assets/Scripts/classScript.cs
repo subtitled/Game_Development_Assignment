@@ -10,15 +10,11 @@ public class classScript : MonoBehaviour
     //TODO: TAKE VALUE FROM ABILITY SELECTION SET ints TO VALUE FOR SWITCH STATEMENTS
     //Setup for switch statements (might change later)
     public int wep_1;
-    public int wep_2;
     public int abil_1;
-    public int abil_2;
 
     //setup up for damage numbers
     public int w1dmg;
-    public int w2dmg;
     public int a1dmg;
-    public int a2dmg;
 
     //Stat setup (might change later)
     public int strength;
@@ -39,33 +35,23 @@ public class classScript : MonoBehaviour
         {
             case 0:
                 wep_1 = PlayerPrefs.GetInt("U1W1");
-                wep_2 = PlayerPrefs.GetInt("U1W2");
                 abil_1 = PlayerPrefs.GetInt("U1A1");
-                abil_2 = PlayerPrefs.GetInt("U1A2");
                 break;
             case 1:
                 wep_1 = PlayerPrefs.GetInt("U2W1");
-                wep_2 = PlayerPrefs.GetInt("U2W2");
                 abil_1 = PlayerPrefs.GetInt("U2A1");
-                abil_2 = PlayerPrefs.GetInt("U2A2");
                 break;
             case 2:
                 wep_1 = PlayerPrefs.GetInt("U3W1");
-                wep_2 = PlayerPrefs.GetInt("U3W2");
                 abil_1 = PlayerPrefs.GetInt("U3A1");
-                abil_2 = PlayerPrefs.GetInt("U3A2");
                 break;
             case 3:
                 wep_1 = PlayerPrefs.GetInt("U4W1");
-                wep_2 = PlayerPrefs.GetInt("U4W2");
                 abil_1 = PlayerPrefs.GetInt("U4A1");
-                abil_2 = PlayerPrefs.GetInt("U4A2");
                 break;
             case 4:
                 wep_1 = PlayerPrefs.GetInt("U5W1");
-                wep_2 = PlayerPrefs.GetInt("U5W2");
                 abil_1 = PlayerPrefs.GetInt("U5A1");
-                abil_2 = PlayerPrefs.GetInt("U5A2");
                 break;
         }
 
@@ -88,15 +74,6 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                 }
-                switch (wep_2)
-                {
-                    case 0:
-                        w2dmg = 30;
-                        break;
-                    case 1:
-                        w2dmg = 30;
-                        break;
-                }
                 switch (abil_1)
                 {
                     case 0:
@@ -104,15 +81,6 @@ public class classScript : MonoBehaviour
                         break;
                     case 1:
                         a1dmg = 30;
-                        break;
-                }
-                switch (abil_2)
-                {
-                    case 0:
-                        a2dmg = 30;
-                        break;
-                    case 1:
-                        a2dmg = 30;
                         break;
                 }
                 break;
@@ -132,15 +100,6 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                 }
-                switch (wep_2)
-                {
-                    case 0:
-                        w2dmg = 30;
-                        break;
-                    case 1:
-                        w2dmg = 30;
-                        break;
-                }
                 switch (abil_1)
                 {
                     case 0:
@@ -148,15 +107,6 @@ public class classScript : MonoBehaviour
                         break;
                     case 1:
                         a1dmg = 30;
-                        break;
-                }
-                switch (abil_2)
-                {
-                    case 0:
-                        a2dmg = 30;
-                        break;
-                    case 1:
-                        a2dmg = 30;
                         break;
                 }
                 break;
@@ -176,15 +126,6 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                 }
-                switch (wep_2)
-                {
-                    case 0:
-                        w2dmg = 30;
-                        break;
-                    case 1:
-                        w2dmg = 30;
-                        break;
-                }
                 switch (abil_1)
                 {
                     case 0:
@@ -192,15 +133,6 @@ public class classScript : MonoBehaviour
                         break;
                     case 1:
                         a1dmg = 30;
-                        break;
-                }
-                switch (abil_2)
-                {
-                    case 0:
-                        a2dmg = 30;
-                        break;
-                    case 1:
-                        a2dmg = 30;
                         break;
                 }
                 break;
@@ -220,15 +152,6 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                 }
-                switch (wep_2)
-                {
-                    case 0:
-                        w2dmg = 30;
-                        break;
-                    case 1:
-                        w2dmg = 30;
-                        break;
-                }
                 switch (abil_1)
                 {
                     case 0:
@@ -236,15 +159,6 @@ public class classScript : MonoBehaviour
                         break;
                     case 1:
                         a1dmg = 30;
-                        break;
-                }
-                switch (abil_2)
-                {
-                    case 0:
-                        a2dmg = 30;
-                        break;
-                    case 1:
-                        a2dmg = 30;
                         break;
                 }
                 break;
@@ -264,15 +178,6 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                 }
-                switch (wep_2)
-                {
-                    case 0:
-                        w2dmg = 30;
-                        break;
-                    case 1:
-                        w2dmg = 30;
-                        break;
-                }
                 switch (abil_1)
                 {
                     case 0:
@@ -280,15 +185,6 @@ public class classScript : MonoBehaviour
                         break;
                     case 1:
                         a1dmg = 30;
-                        break;
-                }
-                switch (abil_2)
-                {
-                    case 0:
-                        a2dmg = 30;
-                        break;
-                    case 1:
-                        a2dmg = 30;
                         break;
                 }
                 break;
