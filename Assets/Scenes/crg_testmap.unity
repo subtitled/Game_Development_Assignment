@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.44
@@ -271,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8244275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 20, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1252224137}
@@ -292,6 +296,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -482,6 +490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -620,6 +632,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Gate 3 Bars (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624009458416280, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4168469857895262, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5999985
@@ -682,6 +702,10 @@ PrefabInstance:
     - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_Name
       value: Castle Block 2x2x5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4672491277189440, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -762,6 +786,160 @@ Transform:
   - {fileID: 543955355}
   m_Father: {fileID: 1252224137}
   m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &116947162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116947168}
+  - component: {fileID: 116947167}
+  - component: {fileID: 116947166}
+  - component: {fileID: 116947165}
+  - component: {fileID: 116947164}
+  - component: {fileID: 116947163}
+  m_Layer: 0
+  m_Name: Capsule (2)
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!195 &116947163
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116947162}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &116947164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116947162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3107d72131be14797381de042a4d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  baseInitiative: 10
+  turnInitiative: 0
+  maxHealth: 0
+  dead: 0
+  action: 0
+  move: 0
+  alertRange: 18
+  engagedRange: 12
+  movementRange: 6
+  patrolPoints:
+  - {fileID: 4205230161504914239}
+  - {fileID: 1387799498}
+  - {fileID: 240003693}
+  - {fileID: 179645987}
+  - {fileID: 1946657584}
+  - {fileID: 1222597656}
+  - {fileID: 2008149206}
+  - {fileID: 431109790}
+  - {fileID: 1387589381}
+  - {fileID: 1424146933}
+  - {fileID: 1197001352}
+  - {fileID: 691547779}
+  currentWaypoint: 0
+--- !u!136 &116947165
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116947162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &116947166
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116947162}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &116947167
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116947162}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &116947168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116947162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.34, y: 1.05, z: 37.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &128880797
 PrefabInstance:
@@ -900,6 +1078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.499998
@@ -1015,6 +1197,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 176114873}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &179645985
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &179645986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 179645985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &179645987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 179645985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &190739077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,13 +1354,94 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190739077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 1, z: -6.5}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 20, y: 36, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1001 &240003691
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &240003692 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 240003691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &240003693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 240003691}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &246361969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1171,6 +1515,14 @@ PrefabInstance:
     - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_Name
       value: Castle Gate 3 Bars
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624009458416280, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4168469857895262, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1332,6 +1684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.44
@@ -1429,6 +1785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.3833132
@@ -1498,7 +1858,7 @@ GameObject:
   - component: {fileID: 353910344}
   m_Layer: 0
   m_Name: Cafe
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1577,6 +1937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Block 2x2x5 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4672491277189440, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.876687
@@ -1633,6 +1997,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1697,6 +2065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.44
@@ -1755,6 +2127,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2054975653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &431109788
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &431109789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 431109788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &431109790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 431109788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &433682032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1765,6 +2218,10 @@ PrefabInstance:
     - target: {fileID: 1920915294998666, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
       propertyPath: m_Name
       value: Castle Gate 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920915294998666, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4117813414084148, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1829,6 +2286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.44
@@ -1892,6 +2353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.94
@@ -1954,6 +2419,14 @@ PrefabInstance:
     - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_Name
       value: Castle Gate 3 Bars (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624009458416280, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4168469857895262, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2080,6 +2553,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2442,6 +2919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.94
@@ -2504,6 +2985,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2620,6 +3105,48 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 612222809}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &632354926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 632354927}
+  m_Layer: 0
+  m_Name: Waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &632354927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632354926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4205230161504914238}
+  - {fileID: 1387799497}
+  - {fileID: 240003692}
+  - {fileID: 179645986}
+  - {fileID: 1946657583}
+  - {fileID: 1222597655}
+  - {fileID: 2008149205}
+  - {fileID: 431109789}
+  - {fileID: 1387589380}
+  - {fileID: 1424146932}
+  - {fileID: 1197001351}
+  - {fileID: 691547778}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &637963260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2630,6 +3157,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2693,6 +3224,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2946,6 +3481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Block 5x5
       objectReference: {fileID: 0}
+    - target: {fileID: 1903178494013924, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4596202773862414, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.609997
@@ -3009,6 +3548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1521357976488106, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4480715945995628, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6333132
@@ -3055,6 +3598,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
+--- !u!1001 &691547777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &691547778 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 691547777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &691547779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 691547777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &711426629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3128,6 +3752,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3225,6 +3853,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3358,6 +3990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -3484,6 +4120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.44
@@ -3547,7 +4187,7 @@ GameObject:
   - component: {fileID: 780712140}
   m_Layer: 0
   m_Name: G23 Lower
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3713,6 +4353,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3886,7 +4530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823131438}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 19.5, y: 5, z: 18.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3902,6 +4546,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4006,6 +4654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.499998
@@ -4068,6 +4720,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4209,11 +4865,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856915457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.73, y: 1.05, z: -2.72}
+  m_LocalPosition: {x: 4.52, y: 1.05, z: 4.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &861692721
 PrefabInstance:
@@ -4289,6 +4945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.3833132
@@ -4351,6 +5011,10 @@ PrefabInstance:
     - target: {fileID: 1572240534572404, guid: 9e49bb71520b5144e8507d4256c8d9ac, type: 3}
       propertyPath: m_Name
       value: Castle Gate 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572240534572404, guid: 9e49bb71520b5144e8507d4256c8d9ac, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4902892245605136, guid: 9e49bb71520b5144e8507d4256c8d9ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4415,6 +5079,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13331318
@@ -4477,6 +5145,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4547,6 +5219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -4616,6 +5292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Deco Pilar 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1763063452215104, guid: 574255b85d007294abfbf25e84135934, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4618532322328632, guid: 574255b85d007294abfbf25e84135934, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.089996
@@ -4678,6 +5358,10 @@ PrefabInstance:
     - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_Name
       value: Castle Block 2x2x5 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4672491277189440, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4799,6 +5483,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Block 5x5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1903178494013924, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4596202773862414, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.259996
@@ -4861,6 +5549,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4925,6 +5617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Deco Pilar 5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1763063452215104, guid: 574255b85d007294abfbf25e84135934, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4618532322328632, guid: 574255b85d007294abfbf25e84135934, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.089997
@@ -4987,6 +5683,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5051,6 +5751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Tower 3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1234763720582482, guid: f6a887f2f94ce3444b4b577a42e05c45, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4548303629805168, guid: f6a887f2f94ce3444b4b577a42e05c45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.509996
@@ -5113,6 +5817,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5366,6 +6074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.439995
@@ -5492,6 +6204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.499998
@@ -5554,6 +6270,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5618,7 +6338,7 @@ GameObject:
   - component: {fileID: 1193112528}
   m_Layer: 0
   m_Name: Courtyard
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5650,6 +6370,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5703,6 +6427,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1193133536}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1197001350
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &1197001351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1197001350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1197001352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1197001350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1198279554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,6 +6558,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5806,6 +6615,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1221149212}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1222597654
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &1222597655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1222597654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1222597656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1222597654}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1226298078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5816,6 +6706,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5879,6 +6773,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6212,6 +7110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13331318
@@ -6301,8 +7203,26 @@ MonoBehaviour:
   baseInitiative: 10
   turnInitiative: 0
   maxHealth: 0
-  alertRange: 20
-  engagedRange: 10
+  dead: 0
+  action: 0
+  move: 0
+  alertRange: 18
+  engagedRange: 12
+  movementRange: 6
+  patrolPoints:
+  - {fileID: 4205230161504914239}
+  - {fileID: 1387799498}
+  - {fileID: 240003693}
+  - {fileID: 179645987}
+  - {fileID: 1946657584}
+  - {fileID: 1222597656}
+  - {fileID: 2008149206}
+  - {fileID: 431109790}
+  - {fileID: 1387589381}
+  - {fileID: 1424146933}
+  - {fileID: 1197001352}
+  - {fileID: 691547779}
+  currentWaypoint: 0
 --- !u!136 &1341406732
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6372,11 +7292,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341406730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 1.05, z: -2.64}
+  m_LocalPosition: {x: 19.99, y: 1.05, z: 17.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &1341406736
 NavMeshAgent:
@@ -6474,6 +7394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -6536,6 +7460,14 @@ PrefabInstance:
     - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_Name
       value: Castle Gate 3 Bars (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624009458416280, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4168469857895262, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6652,6 +7584,168 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1374074963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1387589379
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &1387589380 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1387589379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1387589381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1387589379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1387799496
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &1387799497 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1387799496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1387799498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1387799496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1389170463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6726,6 +7820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.5
@@ -6778,6 +7876,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1409468292}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1424146931
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &1424146932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1424146931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1424146933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1424146931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1447149258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6788,6 +7967,10 @@ PrefabInstance:
     - target: {fileID: 1165771927571282, guid: 91fa635da105d114a96ac2757abc3d7d, type: 3}
       propertyPath: m_Name
       value: Castle Gate 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165771927571282, guid: 91fa635da105d114a96ac2757abc3d7d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4664547708403552, guid: 91fa635da105d114a96ac2757abc3d7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6846,7 +8029,7 @@ GameObject:
   - component: {fileID: 1449312394}
   m_Layer: 0
   m_Name: Map Edging
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6929,6 +8112,10 @@ PrefabInstance:
     - target: {fileID: 1118689978292812, guid: 6c60cdee20a913149b845e668b9c633a, type: 3}
       propertyPath: m_Name
       value: Castle Ground X Mix 8x8 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118689978292812, guid: 6c60cdee20a913149b845e668b9c633a, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4427078650731926, guid: 6c60cdee20a913149b845e668b9c633a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7119,6 +8306,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Gate 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1165771927571282, guid: 91fa635da105d114a96ac2757abc3d7d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4664547708403552, guid: 91fa635da105d114a96ac2757abc3d7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.243313
@@ -7175,6 +8366,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7302,6 +8497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Gate 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1920915294998666, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4117813414084148, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.849997
@@ -7428,6 +8627,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.44
@@ -7490,6 +8693,10 @@ PrefabInstance:
     - target: {fileID: 1521357976488106, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
       propertyPath: m_Name
       value: Castle Fence 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521357976488106, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4480715945995628, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7611,6 +8818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.94
@@ -7673,6 +8884,10 @@ PrefabInstance:
     - target: {fileID: 1903178494013924, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
       propertyPath: m_Name
       value: Castle Block 5x5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903178494013924, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4596202773862414, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7771,6 +8986,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 4 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1521357976488106, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4480715945995628, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.633313
@@ -7827,6 +9046,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7954,6 +9177,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -8080,6 +9307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.499998
@@ -8142,6 +9373,10 @@ PrefabInstance:
     - target: {fileID: 1521357976488106, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
       propertyPath: m_Name
       value: Castle Fence 4 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521357976488106, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4480715945995628, guid: 0259551c03e51d14ea14400d25a5a210, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8389,6 +9624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44.23
@@ -8441,6 +9680,160 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1701971993}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1710031463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710031469}
+  - component: {fileID: 1710031468}
+  - component: {fileID: 1710031467}
+  - component: {fileID: 1710031466}
+  - component: {fileID: 1710031465}
+  - component: {fileID: 1710031464}
+  m_Layer: 0
+  m_Name: Capsule (1)
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!195 &1710031464
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710031463}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1710031465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710031463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3107d72131be14797381de042a4d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  baseInitiative: 10
+  turnInitiative: 0
+  maxHealth: 0
+  dead: 0
+  action: 0
+  move: 0
+  alertRange: 18
+  engagedRange: 12
+  movementRange: 6
+  patrolPoints:
+  - {fileID: 4205230161504914239}
+  - {fileID: 1387799498}
+  - {fileID: 240003693}
+  - {fileID: 179645987}
+  - {fileID: 1946657584}
+  - {fileID: 1222597656}
+  - {fileID: 2008149206}
+  - {fileID: 431109790}
+  - {fileID: 1387589381}
+  - {fileID: 1424146933}
+  - {fileID: 1197001352}
+  - {fileID: 691547779}
+  currentWaypoint: 0
+--- !u!136 &1710031466
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710031463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1710031467
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710031463}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1710031468
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710031463}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1710031469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710031463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.49, y: 1.05, z: 2.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1716829685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8584,6 +9977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.44
@@ -8709,6 +10106,10 @@ PrefabInstance:
     - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_Name
       value: Castle Block 2x2x5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4672491277189440, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8864,6 +10265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Tower 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1234763720582482, guid: f6a887f2f94ce3444b4b577a42e05c45, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4548303629805168, guid: f6a887f2f94ce3444b4b577a42e05c45, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.490004
@@ -8990,6 +10395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.439999
@@ -9052,6 +10461,10 @@ PrefabInstance:
     - target: {fileID: 1920915294998666, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
       propertyPath: m_Name
       value: Castle Gate 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920915294998666, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4117813414084148, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9242,6 +10655,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Gate 3 Bars
       objectReference: {fileID: 0}
+    - target: {fileID: 1400471471553486, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624009458416280, guid: ea47b660fc0657546b77835432282de3, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4168469857895262, guid: ea47b660fc0657546b77835432282de3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5999985
@@ -9431,6 +10852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall Tile (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.499998
@@ -9517,6 +10942,87 @@ Transform:
   m_Father: {fileID: 1252224137}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1946657582
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &1946657583 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1946657582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1946657584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1946657582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1971651885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9527,6 +11033,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9591,6 +11101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Block 2x2x5
       objectReference: {fileID: 0}
+    - target: {fileID: 1786414817219558, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4672491277189440, guid: 016070f8ebeb0f94ab6b043647737b4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.369978
@@ -9647,6 +11161,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9734,6 +11252,87 @@ Transform:
   m_Father: {fileID: 1252224137}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2008149204
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &2008149205 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2008149204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2008149206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2008149204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2009006182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9744,6 +11343,10 @@ PrefabInstance:
     - target: {fileID: 1903178494013924, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
       propertyPath: m_Name
       value: Castle Block 5x5 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903178494013924, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4596202773862414, guid: 2991431d0bbbe4c4e9d7b4cdcf339af1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10122,6 +11725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Gate 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1920915294998666, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4117813414084148, guid: e7d4bd079d6e1df4090e2542f737385a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.349997
@@ -10248,6 +11855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Deco Pilar 5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1763063452215104, guid: 574255b85d007294abfbf25e84135934, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4618532322328632, guid: 574255b85d007294abfbf25e84135934, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.9100032
@@ -10373,6 +11984,10 @@ PrefabInstance:
     - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_Name
       value: Castle Wall Tile (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380694453715964, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4488431837897864, guid: 4e20dbad1a1979f40a980c40e14ab0e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10615,6 +12230,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2138163380}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4205230161504914237
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 632354927}
+    m_Modifications:
+    - target: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f1e03fb213d548911bf6e7df255ea, type: 3}
+--- !u!4 &4205230161504914238 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2992272232514815955, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 4205230161504914237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4205230161504914239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982112624066003039, guid: 649f1e03fb213d548911bf6e7df255ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 4205230161504914237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6478063441597695476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10630,7 +12326,7 @@ PrefabInstance:
     - target: {fileID: 6690317748600201815, guid: b50e39bc0c4ade940a4e7582b67c47dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6690317748600201815, guid: b50e39bc0c4ade940a4e7582b67c47dd,
         type: 3}
@@ -10640,7 +12336,7 @@ PrefabInstance:
     - target: {fileID: 6690317748600201815, guid: b50e39bc0c4ade940a4e7582b67c47dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6690317748600201815, guid: b50e39bc0c4ade940a4e7582b67c47dd,
         type: 3}

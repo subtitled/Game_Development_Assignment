@@ -27,21 +27,26 @@ public class enemyFSM : MonoBehaviour
     private int currHealth;
     
     private bool active = false;
-    private bool dead = false;
-    private bool action = false;
-    private bool move = false;
+    public bool dead = false;
+    public bool action = false;
+    public bool move = false;
 
-    public float alertRange = 20.0f;
-    public float engagedRange = 10.0f;
-    //public float movementRange = 10.0f;
+    public float alertRange = 18.0f;
+    public float engagedRange = 12.0f;
+    public float movementRange = 6.0f;
+    private float moveDistance;
     //public float moveSpeed = 12.0f;
     //public float rotSpeed = 4.0f;
 
     private GameObject mapControl;
     private GameObject[] playerCharacters;
+    private List<GameObject> sortedPlayers = new List<GameObject>();
 
     private NavMeshAgent nav;
+    public GameObject[] patrolPoints;
+    public int currentWaypoint;
     private Vector3 destination;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -50,7 +55,19 @@ public class enemyFSM : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         mapControl = GameObject.Find("MapControl");
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");
+        if (playerCharacters.Length > 0)
+        {
+            foreach (GameObject character in playerCharacters)
+            {
+                sortedPlayers.Add(character);
+            }
+        }
         currState = FSMstate.Wait;
+        if (patrolPoints.Length > 0)
+        {
+            currentWaypoint = Random.Range(0, patrolPoints.Length);
+            destination = patrolPoints[currentWaypoint].gameObject.transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -96,20 +113,22 @@ public class enemyFSM : MonoBehaviour
                 mapControl.SendMessage("ApplyActiveStatus", false);
             }
             
-            foreach (var character in playerCharacters)
+            foreach (GameObject character in playerCharacters)
             {
                 if (Vector3.Distance(transform.position, character.transform.position) <= engagedRange)
                 {
                     currState = FSMstate.Engaged;
+                    break;
                 } 
-                else if (Vector3.Distance(transform.position, character.transform.position) <= alertRange)
+                if (Vector3.Distance(transform.position, character.transform.position) <= alertRange)
                 {
                     currState = FSMstate.Alert;
                 }
-                else
-                {
-                    currState = FSMstate.Idle;
-                }
+            }
+
+            if (currState == FSMstate.Wait)
+            {
+                currState = FSMstate.Idle;
             }
 
         }
@@ -128,17 +147,24 @@ public class enemyFSM : MonoBehaviour
             mapControl.SendMessage("ApplyActiveStatus", false);
         }
 
+        nav.enabled = true;
+        nav.isStopped = false;
         nav.SetDestination(destination);
+
+        moveDistance = moveDistance - (nav.speed * Time.deltaTime);
         
-        if (transform.position == destination)
+        if (moveDistance <= 0.0f | Vector3.Distance(transform.position, destination) <= 1f)
         {
-            currState = FSMstate.Wait;
+            nav.isStopped = true;
+            nav.enabled = false;
             move = false;
+            currState = FSMstate.Wait;
         }
     }
 
     protected void UpdateIdleStatus()
     {
+        print(name + " idle.");
         if (dead)
         {
             currState = FSMstate.Dead;
@@ -151,11 +177,17 @@ public class enemyFSM : MonoBehaviour
         }
         
         // Move then re-assess proximity to players.
-        // destination = Random A* grid within movementRange / 4
-        //else
+        // NavMesh destination logic finding.
         if (move)
         {
-            destination = transform.position;
+            // Generate next waypoint if already at current
+            if (Vector3.Distance(transform.position, destination) <= 1f)
+            {
+                currentWaypoint = Random.Range(0, patrolPoints.Length);
+                destination = patrolPoints[currentWaypoint].gameObject.transform.position;
+            }
+
+            print(name + " moving.");
             currState = FSMstate.Moving;
         }
         
@@ -165,6 +197,7 @@ public class enemyFSM : MonoBehaviour
 
     protected void UpdateAlertStatus()
     {
+        print(name + " alert.");
         if (dead)
         {
             currState = FSMstate.Dead;
@@ -177,11 +210,27 @@ public class enemyFSM : MonoBehaviour
         }
         
         // Move then re-assess proximity to players.
-        // destination = A* grid within movementRange / 2 towards nearest player.
-        //else
+        // NavMesh destination logic finding.
         if (move)
         {
-            destination = transform.position;
+            // Determine nearest 
+            sortedPlayers.Sort(delegate(GameObject o, GameObject o1)
+            {
+                return (((transform.position - o.transform.position).sqrMagnitude).CompareTo((transform.position - o1.transform.position).sqrMagnitude));
+            });
+
+            foreach (GameObject character in sortedPlayers)
+            {
+                // if (!character.GetComponent<classScript>().dead)
+                // {
+                //     destination = character.transform.position;
+                //     break;
+                // }
+                destination = character.transform.position;
+                break;
+            }
+            
+            print(name + " moving.");
             currState = FSMstate.Moving;
         }
         
@@ -191,6 +240,7 @@ public class enemyFSM : MonoBehaviour
 
     protected void UpdateEngagedStatus()
     {
+        print(name + " engaged.");
         if (dead)
         {
             currState = FSMstate.Dead;
@@ -201,11 +251,30 @@ public class enemyFSM : MonoBehaviour
             mapControl.SendMessage("ApplyActiveStatus", false);
             currState = FSMstate.Wait;
         }
-        // destination = A* grid within movementRange. Enemy type variance for attack/ability range.
-        //else
+        
+        // Move then re-assess proximity to players.
+        // NavMesh destination logic finding.
         if (move)
         {
-            destination = transform.position;
+            
+            sortedPlayers.Sort(delegate(GameObject o, GameObject o1)
+            {
+                return (((transform.position - o.transform.position).sqrMagnitude).CompareTo((transform.position - o1.transform.position).sqrMagnitude));
+            });
+
+            foreach (GameObject character in sortedPlayers)
+            {
+                // if (!character.GetComponent<classScript>().dead)
+                // {
+                //     destination = character.transform.position;
+                //     break;
+                // }
+                destination = character.transform.position;
+                break;
+            }
+
+
+            print(name + " moving.");
             currState = FSMstate.Moving;
         }
         /*
@@ -231,6 +300,7 @@ public class enemyFSM : MonoBehaviour
         {
             action = true;
             move = true;
+            moveDistance = movementRange;
             print(name + " activated");
         }
     }
@@ -255,5 +325,8 @@ public class enemyFSM : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, alertRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, engagedRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, movementRange);
+        
     }
 }

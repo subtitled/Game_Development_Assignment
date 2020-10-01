@@ -7,7 +7,7 @@ public class CameraDraw : MonoBehaviour {
 	public Pathfinder pathFinder;
 
 	void Start() {
-		GameObject objStart = GameObject.FindGameObjectWithTag("Start");
+		GameObject objStart = GameObject.FindGameObjectWithTag("Player");
 		pathFinder = objStart.GetComponent<Pathfinder>();
 	}
 

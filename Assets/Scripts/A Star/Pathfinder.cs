@@ -16,8 +16,8 @@ public class Pathfinder : MonoBehaviour {
 	public float intervalTime = 1.0f;
 	
 	void Start () {
-		objStart = GameObject.FindGameObjectWithTag("Start");
-		objEnd = GameObject.FindGameObjectWithTag("End");
+		objStart = GameObject.FindGameObjectWithTag("Player");
+		objEnd = GameObject.FindGameObjectWithTag("Enemy");
 		
 		pathArray = new ArrayList();
 		FindPath();

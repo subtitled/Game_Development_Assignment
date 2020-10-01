@@ -50,7 +50,7 @@ public class TurnControl : MonoBehaviour
         HashSet<int> usedSpawns = new HashSet<int>();
         
         //For random placement of objects at across designated points.
-        foreach (var placeable in mapObjects)
+        foreach (GameObject placeable in mapObjects)
         {
             while(true)
             {
@@ -64,8 +64,7 @@ public class TurnControl : MonoBehaviour
             }
         } 
         
-        
-        foreach (var character in enemyCharacters)
+        foreach (GameObject character in enemyCharacters)
         {
             // Get and randomise initiative, add to initiativeOrder.
             character.gameObject.GetComponent<enemyFSM>().turnInitiative = 
@@ -85,8 +84,7 @@ public class TurnControl : MonoBehaviour
             }*/
         }
         
-        
-        foreach (var character in playerCharacters)
+        foreach (GameObject character in playerCharacters)
         { 
             // Need to add the initiative to the classScript, or from a common basic values script.
             
