@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class classScript : MonoBehaviour
 {
@@ -28,9 +29,22 @@ public class classScript : MonoBehaviour
     public int classNum;
     public int unitNum;
 
+    public bool dead;
+    public bool active;
+    public bool action;
+    public bool move;
+    
+    // Connect to map control.
+    private GameObject mapControl;
+    private NavMeshAgent nav;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Connect to map control and components.
+        mapControl = GameObject.Find("MapControl");
+        nav = GetComponent<NavMeshAgent>();
+        
         switch (unitNum)
         {
             case 0:
@@ -196,7 +210,79 @@ public class classScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (active)
+        {
+            if (dead)
+            {
+                active = false;
+                mapControl.SendMessage("ApplyActiveStatus", false);
+            }
+            
+            /*
+             * ACTIVATE PLAYER CONTROLS FOR CHARACTER
+             */
+            
+            // DEBUG skip player.
+            active = false;
+            mapControl.SendMessage("ApplyActiveStatus", false);
+            
+            /*
+             * DEACTIVATE PLAYER CONTROLS FOR CHARACTER
+             */
+            
+        }
   
     }
 
+    
+    void ApplyActiveStatus(bool message)
+    {
+        // Receiver to activate character on its turn.
+        
+        if (message)
+        {
+            // Toggles active and refreshes action and movement.
+            active = true;
+            action = true;
+            move = true;
+            //moveDistance = movementRange;
+            // DEBUG for activation.
+            //print(name + " activated");
+        }
+    }
+
+    void ApplyDamage(int damage)
+    {
+        // // Reciever for damage taken.
+        //
+        // currHealth -= damage;
+        //
+        // // Death check.
+        // if (currHealth <= 0)
+        // {
+        //     /*
+        //      * DEATH EFFECTS
+        //      * UI, Visual, Transformative.
+        //     */
+        //     
+        //     // Disables character functions.
+        //     mapControl.SendMessage("ApplyPlayerSlain");
+        //     nav.isStopped = true;
+        //     nav.enabled = false;
+        //     dead = true;
+        // }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // // DEBUG for range thresholds.
+        // Gizmos.color = Color.yellow;
+        // Gizmos.DrawWireSphere(transform.position, alertRange);
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireSphere(transform.position, engagedRange);
+        // Gizmos.color = Color.green;
+        // Gizmos.DrawWireSphere(transform.position, movementRange);
+        
+    }
+    
 }

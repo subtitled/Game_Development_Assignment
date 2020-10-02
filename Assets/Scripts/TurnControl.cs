@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurnControl : MonoBehaviour
 {
-    //Turn Control FSM AI
+    // FSM state values.
     public enum FSMturn
     {
         None,
@@ -14,42 +14,52 @@ public class TurnControl : MonoBehaviour
         Victory,
         Defeat
     }
-    
+    // FSM switch.
     public FSMturn currState;
     
-    // Import Map-based values.
+    // Import Map objects.
     public GameObject[] mapObjects;
     public GameObject[] spawnPoints;
-    // public DATA_TYPE navigationMechanism;
-    private int turnCount = 0;
     
-    // Experience Point collectors.
-    private int generalXP = 0;
-    private int class1XP = 0;
-    private int class2XP = 0;
-    private int class3XP = 0;
-    private int class4XP = 0;
-    private int class5XP = 0;
-    
-    // Character listings.
+    // Import characters.
     private GameObject[] enemyCharacters;
     private GameObject[] playerCharacters;
     private List<GameObject> initiativeOrder = new List<GameObject>();
-    private bool activeCharacter = false;
+    
+    // Game state values.
+    private int turnCount = 0;
+    private bool activated;
     private int characterOrder = 0;
-
+    private GameObject activeCharacter;
+    
+    // Death tally.
     private int playersSlain = 0;
     private int enemiesSlain = 0;
     
-
+    // Experience Point collectors.
+    public int victoryBonus = 150;
+    private int totalScore = 0;
+    private int player1XP = 0;
+    private int player2XP = 0;
+    private int player3XP = 0;
+    private int player4XP = 0;
+    private int player5XP = 0;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        // Imports player and enemy characters.
         enemyCharacters = GameObject.FindGameObjectsWithTag("Enemy");
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");
-        HashSet<int> usedSpawns = new HashSet<int>();
         
-        //For random placement of objects at across designated points.
+        
+        // For randomised spawn placements
+        // Prevents a spawn point being used twice.
+        //HashSet<int> usedSpawns = new HashSet<int>();
+        
+        //For random placement of interactable objects at randomised points.
+        /*
         foreach (GameObject placeable in mapObjects)
         {
             while(true)
@@ -63,68 +73,90 @@ public class TurnControl : MonoBehaviour
                 }
             }
         } 
+        */
         
-        foreach (GameObject character in enemyCharacters)
+        if (enemyCharacters.Length > 0)
         {
-            // Get and randomise initiative, add to initiativeOrder.
-            character.gameObject.GetComponent<enemyFSM>().turnInitiative = 
-                character.gameObject.GetComponent<enemyFSM>().baseInitiative * Random.Range(0.7f, 1.3f); 
-            initiativeOrder.Add(character);
-            
-            // For random placement of enemies across designated points.
-            /*while(true)
+            foreach (GameObject character in enemyCharacters)
             {
-                int spawnPosition = Random.Range(0, spawnPoints.Length);
-                if (!usedSpawns.Contains(spawnPosition))
+                // Get and randomise enemy initiative, add to initiativeOrder for ordering.
+                character.gameObject.GetComponent<enemyFSM>().turnInitiative =
+                    character.gameObject.GetComponent<enemyFSM>().baseInitiative * Random.Range(0.7f, 1.3f);
+                initiativeOrder.Add(character);
+
+                // For random placement of enemies across designated points.
+                /*while(true)
                 {
-                    character.transform.position = spawnPoints[spawnPosition].transform.position;
-                    usedSpawns.Add(spawnPosition);
-                    break;
-                }
-            }*/
+                    int spawnPosition = Random.Range(0, spawnPoints.Length);
+                    if (!usedSpawns.Contains(spawnPosition))
+                    {
+                        character.transform.position = spawnPoints[spawnPosition].transform.position;
+                        usedSpawns.Add(spawnPosition);
+                        break;
+                    }
+                }*/
+            }
         }
         
-        foreach (GameObject character in playerCharacters)
-        { 
-            // Need to add the initiative to the classScript, or from a common basic values script.
-            
-            // Get and randomise initiative, add to initiativeOrder.
-            //character.gameObject.GetComponent<classScript>().turnInitiative = 
+        if (playerCharacters.Length > 0)
+        {
+            foreach (GameObject character in playerCharacters)
+            {
+
+                // Get character initiative, add to initiativeOrder for ordering.
+                //character.gameObject.GetComponent<classScript>().turnInitiative = 
                 //character.gameObject.GetComponent<classScript>().baseInitiative * Random.Range(0.7f, 1.3f);
-            //initiativeOrder.Add(character);
-            
+                initiativeOrder.Add(character);
+
+            }
         }
         
-        // Sort initiativeOrder by initiative values
-        // Can only compare from specified components,
-        // Either use an if() to differentiate by tag, or have a common script containing variable.
-        
+        // Sorts initiativeOrder by ascending initiative values.
         if (initiativeOrder.Count > 0)
         {
             initiativeOrder.Sort(delegate(GameObject o, GameObject o1)
             {
-                return (o.GetComponent<enemyFSM>().turnInitiative).CompareTo(o1.GetComponent<enemyFSM>()
-                    .turnInitiative);
+                float oInit = 0f;
+                float o1Init = 0f;
+                
+                // Confirms if enemy or player.
+                if (o.CompareTag("Enemy"))
+                {
+                    oInit += o.GetComponent<enemyFSM>().turnInitiative;
+                }
+                else if (o.CompareTag("Player"))
+                {
+                    oInit += o.GetComponent<classScript>().initiative;
+                }
+                
+                // Confirms if enemy or player.
+                if (o1.CompareTag("Enemy"))
+                {
+                    o1Init += o1.GetComponent<enemyFSM>().turnInitiative;
+                }
+                else if (o1.CompareTag("Player"))
+                {
+                    o1Init += o1.GetComponent<classScript>().initiative;
+                }
+                
+                return (oInit.CompareTo(o1Init));
             });
+            // Reverses order, so highest initiatives first.
             initiativeOrder.Reverse();
         }
         
-        
-        /*
-         * Player Character Placement Phase
-         * Highly UI related.
-         * Maybe just make these in a fixed position?
-        */
-        
+        // Sets initial FSM state.
         turnCount = 1;
+        // DEBUG for game start
+        //print("Start Turn " + turnCount);
         currState = FSMturn.Wait;
-        print("Start Turn " + turnCount);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        // FSM switch.
         switch (currState)
         {
             case FSMturn.Wait: UpdateWaitState(); break;
@@ -134,36 +166,16 @@ public class TurnControl : MonoBehaviour
             case FSMturn.Defeat: UpdateDefeatState(); break;
 
         }
-        /*
-         *FSM
-         *
-         * if activeCharacter == true
-         *     waitFSM
-         * if activeCharacter == false & characterOrder < initiativeOrder.Length
-         *     activateFSM
-         *         send activation message
-         *         characterOrder += 1
-         *         activeCharacter = true
-         * if characterOrder == initiativeOrder.Length
-         *     endturnFSM
-         *         characterOrder = 0
-         *         turnCount += 1
-         *
-         * Forced states, may need to put at start?
-         *     victoryFSM
-         *     defeatFSM
-         * 
-         * reciever function to flip activeCharacter from true to false
-         * receiver function to add dead characters to a list
-         *     function checks if all of one side are in the list
-         *     force state change to victory/defeat if true.
-         */
+        
     }
 
     protected void UpdateWaitState()
     {
-        if (activeCharacter == false)
+        // Holding state for TurnControl FSM while an activated character takes its turn.
+        // Ends when signalled by receiver.
+        if (!activated)
         {
+            // Checks if all characters have had their turn.
             if (characterOrder >= initiativeOrder.Count)
             {
                 currState = FSMturn.EndTurn;
@@ -176,23 +188,31 @@ public class TurnControl : MonoBehaviour
 
     protected void UpdateActivateState()
     {
-        if (activeCharacter == true)
+        // State to activate the next character in the initiative order to take its turn.
+        
+        // Sends to the wait state while a character is active.
+        if (activated)
         {
             currState = FSMturn.Wait;
         }
         
-        if (activeCharacter == false)
+        // Determines and activates the next character.
+        if (!activated)
         {
+            // Checks if all characters have had their turn.
             if (characterOrder >= initiativeOrder.Count)
             {
                 currState = FSMturn.EndTurn;
             }
-
+            
+            // Retrieves and activates the next character.
             if (characterOrder < initiativeOrder.Count)
             {
-                print("Activating " + initiativeOrder[characterOrder].name);
+                // DEBUG for character activation.
+                //print("Activating " + initiativeOrder[characterOrder].name);
                 initiativeOrder[characterOrder].SendMessage("ApplyActiveStatus", true);
-                activeCharacter = true;
+                activated = true;
+                activeCharacter = initiativeOrder[characterOrder];
                 characterOrder += 1;
                 currState = FSMturn.Wait;
             }
@@ -203,15 +223,19 @@ public class TurnControl : MonoBehaviour
 
     protected void UpdateEndTurnState()
     {
-        if (activeCharacter == true)
+        // Turn End state.
+        
+        if (activated)
         {
             currState = FSMturn.Wait;
         }
         
+        // Increments or resets values.
         characterOrder = 0;
         turnCount += 1;
         currState = FSMturn.Wait;
-        print("Start Turn " + turnCount);
+        // DEBUG for turn end.
+        //print("Start Turn " + turnCount);
 
         // UI End Turn and Turn Start Effects.
 
@@ -221,16 +245,14 @@ public class TurnControl : MonoBehaviour
     {
         // Victory UI effects
         
-
-        // Bonus XP for victory?
-        generalXP += 300;
         
-        // Method of determining which classes are present, and dividing only among them?
-        class1XP += generalXP / 5;
-        class2XP += generalXP / 5;
-        class3XP += generalXP / 5;
-        class4XP += generalXP / 5;
-        class5XP += generalXP / 5;
+        // Distribute victory bonus and calculate total scores.
+        player1XP += victoryBonus;
+        player2XP += victoryBonus;
+        player3XP += victoryBonus;
+        player4XP += victoryBonus;
+        player5XP += victoryBonus;
+        totalScore = player1XP + player2XP + player3XP + player4XP + player5XP;
 
     }
 
@@ -239,69 +261,46 @@ public class TurnControl : MonoBehaviour
         // Defeat UI effects
         
         
-        // No bonus XP?
-        // Method of determining which classes are present, and dividing only among them?
-        // Can solve with hashset,
-        // if HashSet.contains(ClassID integer){
-        //     class#XP += generalXP / HashSet.Length
-        // }
-        class1XP += generalXP / 5;
-        class2XP += generalXP / 5;
-        class3XP += generalXP / 5;
-        class4XP += generalXP / 5;
-        class5XP += generalXP / 5;
+        // No victory bonus, calculate total score.
+        totalScore = player1XP + player2XP + player3XP + player4XP + player5XP;
+        
     }
 
-    void ApplyGeneralXP(int addXP)
+    void ApplyXP(int addXP)
     {
-        generalXP += addXP;
-    }
-    
-    void ApplyClassXP(int classNo, int addXP)
-    // SendMessage can only contain 1 variable, but it can be a list/array...
-    {
-        switch (classNo)
+        // Receiver to apply earned XP to the player character on a kill/action.
+        if (activeCharacter.CompareTag("Player"))
         {
-            case 1: class1XP += addXP; break;
-            case 2: class2XP += addXP; break;
-            case 3: class3XP += addXP; break;
-            case 4: class4XP += addXP; break;
-            case 5: class5XP += addXP; break;
+            switch (activeCharacter.GetComponent<classScript>().unitNum)
+            {
+                case 0:
+                    player1XP += addXP;
+                    break;
+                case 1:
+                    player2XP += addXP;
+                    break;
+                case 2:
+                    player3XP += addXP;
+                    break;
+                case 3:
+                    player4XP += addXP;
+                    break;
+                case 4:
+                    player5XP += addXP;
+                    break;
+            }
         }
     }
     
-    void ApplyClass1XP(int addXP)
-    {
-        class1XP += addXP;
-    }
-
-    void ApplyClass2XP(int addXP)
-    {
-        class2XP += addXP;
-    }
-
-    void ApplyClass3XP(int addXP)
-    {
-        class3XP += addXP;
-    }
-
-    void ApplyClass4XP(int addXP)
-    {
-        class4XP += addXP;
-    }
-
-    void ApplyClass5XP(int addXP)
-    {
-        class5XP += addXP;
-    }
-
     void ApplyActiveStatus(bool message)
     {
-        activeCharacter = message;
+        // Receiver to toggle active status at the end of a characters turn.
+        activated = message;
     }
     
     void ApplyPlayerSlain()
     {
+        // Reciever to count players slain and check defeat condition.
         playersSlain += 1;
         if (playersSlain >= playerCharacters.Length)
         {
@@ -312,6 +311,7 @@ public class TurnControl : MonoBehaviour
     
     void ApplyEnemySlain()
     {
+        // Reciever to count enemies slain and check victory condition.
         enemiesSlain += 1;
         if (enemiesSlain >= enemyCharacters.Length)
         {
@@ -319,37 +319,4 @@ public class TurnControl : MonoBehaviour
         }
     }
     
-    
-
-/*
-Pseudocoding:
-
-Map level controller:
-START
-    Transition in from SETUP
-    Obtain waypoints
-    Obtain random features
-    Obtain creatures, create list
-    Obtain players, create list
-    Place random features
-    Place creatures
-    Determine initiative of each (value +/- randomiser)
-    Order the initiative list
-    Turn = 0
-    Enable player placement in predetermined area
-    On placement finish, enter turn mode
-TURN
-    Turn += 1
-    For character (Active creature/player) in initiative:
-        PLAYER/CREATURE ACTIONS
-        Receive messages from killed characters, store in killed list, experience tally += value
-            If no more live creatures - Victory
-            If no more live players - Defeat
-    Clean up, remove killed characters from initiative list
-    Next turn 
-END
-    Message out total experience, class experience
-    Transition out to RESULTS
- 
-*/
 }
