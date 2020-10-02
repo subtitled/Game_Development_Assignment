@@ -19,11 +19,12 @@ public class TurnControl : MonoBehaviour
     
     // Import Map objects.
     public GameObject[] mapObjects;
-    public GameObject[] spawnPoints;
+    public GameObject spawnPoints;
+    public GameObject enemySpawns;
     
     // Import characters.
-    private GameObject[] enemyCharacters;
-    private GameObject[] playerCharacters;
+    public GameObject[] enemyCharacters;
+    public GameObject[] playerCharacters;
     private List<GameObject> initiativeOrder = new List<GameObject>();
     
     // Game state values.
@@ -49,6 +50,13 @@ public class TurnControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        spawnPoints = GameObject.Find("spawnPoints");
+        spawnPoints.GetComponent<spawning>().PlayerSpawn();
+        enemySpawns = GameObject.Find("enemySpawns");
+        enemySpawns.GetComponent<enemySpawning>().enemySpawn();
+        
+
         // Imports player and enemy characters.
         enemyCharacters = GameObject.FindGameObjectsWithTag("Enemy");
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");

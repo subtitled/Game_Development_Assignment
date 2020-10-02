@@ -8,7 +8,7 @@ public class enemySpawning : MonoBehaviour
     public GameObject[] enemyModels;
 
     // Start is called before the first frame update
-    void Start()
+    public void enemySpawn()
     {
         Instantiate(enemyModels[0], spawnPointList[0].transform.position, Quaternion.Euler(0f, 180f, 0f));
         Instantiate(enemyModels[1], spawnPointList[1].transform.position, Quaternion.Euler(0f, 180f, 0f));

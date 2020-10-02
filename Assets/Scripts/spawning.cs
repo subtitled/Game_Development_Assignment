@@ -14,7 +14,7 @@ public class spawning : MonoBehaviour
     public int unitFive;
 
     // Start is called before the first frame update
-    void Start()
+    public void PlayerSpawn()
     {
         //get value of class
         //switch

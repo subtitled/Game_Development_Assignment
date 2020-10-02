@@ -1780,8 +1780,10 @@ GameObject:
   - component: {fileID: 2407944377986006289}
   - component: {fileID: 1697114041051405356}
   - component: {fileID: 5619484138017458493}
+  - component: {fileID: 5555018071640018897}
+  - component: {fileID: -4461985631308439811}
   m_Layer: 0
-  m_Name: EnemyPriest 1
+  m_Name: EnemyPriest
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1897,10 +1899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddd725c1a83ed94b9eeb2b492f7818a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wep_1: 0
-  wep_2: 0
-  abil_1: 0
-  abil_2: 0
+  w1dmg: 0
+  a1dmg: 0
   strength: 0
   agility: 0
   intelligence: 0
@@ -1909,6 +1909,53 @@ MonoBehaviour:
   initiative: 0
   enemyClassNum: 1
   unitNum: 0
+--- !u!195 &5555018071640018897
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131927669975380502}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &-4461985631308439811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131927669975380502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3107d72131be14797381de042a4d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  dead: 0
+  action: 0
+  move: 0
+  baseInitiative: 10
+  turnInitiative: 0
+  maxHealth: 0
+  killXP: 0
+  alertRange: 18
+  engagedRange: 12
+  movementRange: 6
+  patrolPoints: []
+  currentWaypoint: 0
 --- !u!1 &6419192403990458325
 GameObject:
   m_ObjectHideFlags: 0
