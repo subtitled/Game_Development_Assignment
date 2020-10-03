@@ -60,33 +60,11 @@ public class TurnControl : MonoBehaviour
         enemySpawns = GameObject.Find("enemySpawns");
         enemySpawns.GetComponent<enemySpawning>().enemySpawn();
         
-
         // Imports player and enemy characters.
         enemyCharacters = GameObject.FindGameObjectsWithTag("Enemy");
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");
         
-        
-        // For randomised spawn placements
-        // Prevents a spawn point being used twice.
-        //HashSet<int> usedSpawns = new HashSet<int>();
-        
-        //For random placement of interactable objects at randomised points.
-        /*
-        foreach (GameObject placeable in mapObjects)
-        {
-            while(true)
-            {
-                int spawnPosition = Random.Range(0, spawnPoints.Length);
-                if (!usedSpawns.Contains(spawnPosition))
-                {
-                    placeable.transform.position = spawnPoints[spawnPosition].transform.position;
-                    usedSpawns.Add(spawnPosition);
-                    break;
-                }
-            }
-        } 
-        */
-        
+       
         if (enemyCharacters.Length > 0)
         {
             foreach (GameObject character in enemyCharacters)
@@ -96,17 +74,6 @@ public class TurnControl : MonoBehaviour
                     character.gameObject.GetComponent<enemyFSM>().baseInitiative * Random.Range(0.7f, 1.3f);
                 initiativeOrder.Add(character);
 
-                // For random placement of enemies across designated points.
-                /*while(true)
-                {
-                    int spawnPosition = Random.Range(0, spawnPoints.Length);
-                    if (!usedSpawns.Contains(spawnPosition))
-                    {
-                        character.transform.position = spawnPoints[spawnPosition].transform.position;
-                        usedSpawns.Add(spawnPosition);
-                        break;
-                    }
-                }*/
             }
         }
         
@@ -229,14 +196,14 @@ public class TurnControl : MonoBehaviour
                 characterOrder += 1;
                 currState = FSMturn.Wait;
                 //code to show UI when unit's turn
-                if (activeCharacter.CompareTag("Player"))
-                {
-                    activeCharacter.GetComponent<classScript>().classUI.gameObject.SetActive(true);
-                }
-                else if (activeCharacter.CompareTag("Enemy"))
-                {
-                    activeCharacter.GetComponent<enemyClassScript>().enemyUI.gameObject.SetActive(true);
-                }
+                // if (activeCharacter.CompareTag("Player"))
+                // {
+                //     activeCharacter.GetComponent<classScript>().classUI.gameObject.SetActive(true);
+                // }
+                // else if (activeCharacter.CompareTag("Enemy"))
+                // {
+                //     activeCharacter.GetComponent<enemyClassScript>().enemyUI.gameObject.SetActive(true);
+                // }
             }
             
         }
@@ -261,15 +228,6 @@ public class TurnControl : MonoBehaviour
         //print("Start Turn " + turnCount);
 
         // UI End Turn and Turn Start Effects.
-        //code needs to be fixed to hide at end of turn
-        if (activeCharacter.CompareTag("Player"))
-        {
-            activeCharacter.GetComponent<classScript>().classUI.gameObject.SetActive(false);
-        }
-        else if (activeCharacter.CompareTag("Enemy"))
-        {
-            activeCharacter.GetComponent<enemyClassScript>().enemyUI.gameObject.SetActive(false);
-        }
 
     }
 

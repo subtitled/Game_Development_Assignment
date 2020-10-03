@@ -8,6 +8,18 @@ using UnityEngine.AI;
 
 public class classScript : MonoBehaviour
 {
+    // FSM state values.
+    public enum FSMstate
+    {
+        None,
+        Wait,
+        Active,
+        Moving,
+        Dead
+    }
+    // FSM switch.
+    public FSMstate currState;
+
     //TODO: TAKE VALUE FROM ABILITY SELECTION SET ints TO VALUE FOR SWITCH STATEMENTS
     //Setup for switch statements (might change later)
     public int wep_1;
@@ -37,6 +49,9 @@ public class classScript : MonoBehaviour
     // Connect to map control.
     private GameObject mapControl;
     private NavMeshAgent nav;
+    private Vector3 destination;
+    public float movementRange = 6.0f;
+    private float moveDistance;
 
     //Holder for UI to be enabled/disabled
     public GameObject classUI;
@@ -208,34 +223,99 @@ public class classScript : MonoBehaviour
                 break;
         }
 
-        
+        // Setting to wait states.
+        classUI.SetActive(active);
+        currState = FSMstate.Wait;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // FSM switch.
+        switch (currState)
+        {
+            case FSMstate.Wait: UpdateWaitStatus(); break;
+            case FSMstate.Active: UpdateActiveStatus(); break;
+            case FSMstate.Moving: UpdateMovingStatus(); break;
+            case FSMstate.Dead: UpdateDeadStatus(); break;
+        }
+        
+        if(!dead)
+        {
+            classUI.SetActive(active);
+        }
+        
+    }
+    
+    protected void UpdateWaitStatus()
+    {
+        // Primary stand-by state between turns, Central state for recalculating activity status.
+        
+        if (dead)
+        {
+            currState = FSMstate.Dead;
+        }
+        
+        // Calculates state to enter when becoming the active character.
         if (active)
         {
-            if (dead)
-            {
-                active = false;
-                mapControl.SendMessage("ApplyActiveStatus", false);
-            }
+            currState = FSMstate.Active;
+        }
+    }
+
+    protected void UpdateActiveStatus()
+    {
+        
+        
+        
+        // // DEBUG skip player.
+        // active = false;
+        // mapControl.SendMessage("ApplyActiveStatus", false);
+        // currState = FSMstate.Wait;
+        
             
-            /*
-             * ACTIVATE PLAYER CONTROLS FOR CHARACTER
-             */
-            
-            // DEBUG skip player.
+        if (move == false & action == false)
+        {
             active = false;
             mapControl.SendMessage("ApplyActiveStatus", false);
-            
-            /*
-             * DEACTIVATE PLAYER CONTROLS FOR CHARACTER
-             */
-            
+            currState = FSMstate.Wait;
         }
-  
+    }
+    
+    
+    protected void UpdateMovingStatus()
+    {
+        // Dedicated Moving State, so the player cannot also make an action at the same time.
+        
+        // Enable NavMesh interactions to set destination.
+        nav.enabled = true;
+        nav.isStopped = false;
+        nav.SetDestination(destination);
+        
+        // Limits movement to within the movement range.
+        moveDistance = moveDistance - (nav.speed * Time.deltaTime);
+        
+        // Checks to see if the movement range has been reached, or at the destination.
+        if (moveDistance <= 0.0f | Vector3.Distance(transform.position, destination) <= 1f)
+        {
+            nav.isStopped = true;
+            nav.enabled = false;
+            move = false;
+            currState = FSMstate.Wait;
+            // Transition to the Wait state to recalculate distances to players.
+        }
+    }
+    
+    protected void UpdateDeadStatus()
+    {
+        // They're dead.
+        
+        if (active)
+        {
+            // Immediately ends its turn if activated.
+            active = false;
+            mapControl.SendMessage("ApplyActiveStatus", false);
+        }
     }
 
     
@@ -249,7 +329,7 @@ public class classScript : MonoBehaviour
             active = true;
             action = true;
             move = true;
-            //moveDistance = movementRange;
+            moveDistance = movementRange;
             // DEBUG for activation.
             //print(name + " activated");
         }

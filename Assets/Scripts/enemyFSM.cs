@@ -54,8 +54,10 @@ public class enemyFSM : MonoBehaviour
     
     // Allows for the players to be sorted by specific criteria.
     private List<GameObject> sortedPlayers = new List<GameObject>();
-    
-    
+
+    // UI objects.
+    private GameObject toggleUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +80,11 @@ public class enemyFSM : MonoBehaviour
             currentWaypoint = Random.Range(0, patrolPoints.Length);
             destination = patrolPoints[currentWaypoint].gameObject.transform.position;
         }
+        
+        // Import UI objects
+        toggleUI = GetComponent<enemyClassScript>().enemyUI;
+        toggleUI.SetActive(false);
+        
         // Set to Wait State.
         currState = FSMstate.Wait;
     }
@@ -96,6 +103,10 @@ public class enemyFSM : MonoBehaviour
             case FSMstate.Dead: UpdateDeadStatus(); break;
         }
         
+        if(!dead)
+        {
+            toggleUI.SetActive(active);
+        }
     }
 
     protected void UpdateWaitStatus()
@@ -110,7 +121,6 @@ public class enemyFSM : MonoBehaviour
         // Calculates state to enter when becoming the active character.
         if (active)
         {
-            
             if (move == false & action == false)
             {
                 active = false;
@@ -139,8 +149,9 @@ public class enemyFSM : MonoBehaviour
             {
                 currState = FSMstate.Idle;
             }
-
+            
         }
+
     }
 
     protected void UpdateMovingStatus()
@@ -303,7 +314,7 @@ public class enemyFSM : MonoBehaviour
     
     protected void UpdateDeadStatus()
     {
-        // It's dead.
+        // They're dead.
         
         if (active)
         {
