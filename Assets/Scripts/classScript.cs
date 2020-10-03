@@ -45,6 +45,7 @@ public class classScript : MonoBehaviour
         mapControl = GameObject.Find("MapControl");
         nav = GetComponent<NavMeshAgent>();
         
+        //gets weapon and ability that was saved on the loadout selection screen
         switch (unitNum)
         {
             case 0:

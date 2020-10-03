@@ -15,6 +15,7 @@ public class dropdown : MonoBehaviour
 
     public void GetUnitOne(int classNum)
     {
+        //sets the value based on class picked
         switch (classNum)
         {
             case 0: //warrior
@@ -33,11 +34,11 @@ public class dropdown : MonoBehaviour
                 unitOne.value = 4;
                 break;
         }
-        Debug.Log("test: " + unitOne.value + "'" + unitTwo.value + "'" + unitThree.value + "'" + unitFour.value + "'" + unitFive.value);
     }
 
     public void GetUnitTwo(int classNum)
     {
+        //sets the value based on class picked
         switch (classNum)
         {
             case 0: //warrior
@@ -60,6 +61,7 @@ public class dropdown : MonoBehaviour
 
     public void GetUnitThree(int classNum)
     {
+        //sets the value based on class picked
         switch (classNum)
         {
             case 0: //warrior
@@ -82,6 +84,7 @@ public class dropdown : MonoBehaviour
 
     public void GetUnitFour(int classNum)
     {
+        //sets the value based on class picked
         switch (classNum)
         {
             case 0: //warrior
@@ -104,6 +107,7 @@ public class dropdown : MonoBehaviour
 
     public void GetUnitFive(int classNum)
     {
+        //sets the value based on class picked
         switch (classNum)
         {
             case 0: //warrior
@@ -124,6 +128,7 @@ public class dropdown : MonoBehaviour
         }
     }
 
+    //used for saving teams choices to PlayerPrefs to load when the game starts
     public void SaveTeam()
     {
         PlayerPrefs.SetInt("UnitOne", unitOne.value);

@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//USED FOR DISPLAYING CHARACTER MODELS IN TEAM SELECT MENU
 public class menuSpawning : MonoBehaviour
 {
-    public GameObject[] spawnPointList;
-    public GameObject[] classModels;
-    public Dropdown[] dropdowns;
+    public GameObject[] spawnPointList; //stores spawn points for models to appear on
+    public GameObject[] classModels; //stores prefab models for loading
+    public Dropdown[] dropdowns; //stores dropdown menus for finding what class is currently chosen
 
+    //storing current selected class value
     public int unitOne;
     public int unitTwo;
     public int unitThree;
     public int unitFour;
     public int unitFive;
+
+    //storing previously selected class value for comparison to currently selected
     public int prevU1;
     public int prevU2;
     public int prevU3;
     public int prevU4;
     public int prevU5;
 
-
+    //will contain copies of the gameobject models so they can be destroyed when class changes
     private GameObject clone1;
     private GameObject clone2;
     private GameObject clone3;
     private GameObject clone4;
     private GameObject clone5;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        //get value of class
-        //switch
-        //spawn depending on number
-        //do 5 times
+        //sets base values for what model to display
         unitOne = dropdowns[0].value;
         prevU1 = unitOne;
         unitTwo = dropdowns[1].value;
@@ -45,6 +46,7 @@ public class menuSpawning : MonoBehaviour
         unitFive = dropdowns[4].value;
         prevU5 = unitFive;
 
+        //checks above code and finds what model to display for each unit
         switch (unitOne)
         {
             case 0:
@@ -138,15 +140,17 @@ public class menuSpawning : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        //if the dropdown changes, unit values change
         unitOne = dropdowns[0].value;
         unitTwo = dropdowns[1].value;
         unitThree = dropdowns[2].value;
         unitFour = dropdowns[3].value;
         unitFive = dropdowns[4].value;
 
+        //if the unit value isn't the same as the prev unit value, will destroy model and create new one.
         if (unitOne != prevU1)
         {
             prevU1 = unitOne;

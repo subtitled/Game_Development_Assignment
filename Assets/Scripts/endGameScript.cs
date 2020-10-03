@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class endGameScript : MonoBehaviour
 {
+    //sets up for storing exp values and total score
     private int unit1exp;
     private int unit2exp;
     private int unit3exp;
@@ -12,6 +13,7 @@ public class endGameScript : MonoBehaviour
     private int unit5exp;
     private int totalScore;
 
+    //sets variables for the number next to the
     public Text u1Num;
     public Text u2Num;
     public Text u3Num;
@@ -19,7 +21,7 @@ public class endGameScript : MonoBehaviour
     public Text u5Num;
     public Text tSNum;
 
-    public float duration = 0.5f;
+    //TODO exp1-5 and total should be set up here and filled in Start with values from game
     private int test = 100;
     private int exp1 = 0;
     private int exp2 = 0;
@@ -33,9 +35,10 @@ public class endGameScript : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
+    //FixedUpdate is used to slow down the number increasing
     void FixedUpdate()
     {
+        //increases the number values by 1 every update until it reaches the value imported from the game
         if (int.Parse(u1Num.text) < test)
         {
             u1Num.text = exp1.ToString();

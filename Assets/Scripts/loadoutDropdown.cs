@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class loadoutDropdown : MonoBehaviour
 {
+    //sets up variables for storing what class every unit is
     public int unitOne;
     public int unitTwo;
     public int unitThree;
@@ -12,20 +13,20 @@ public class loadoutDropdown : MonoBehaviour
     public int unitFive;
 
     //Warrior weapons/abilities
-    List<string> war_wep1 = new List<string> { "War Wep 1.1", "War Wep 1.2" };
-    List<string> war_ab1 = new List<string> { "War ab 1.1", "War ab 1.2" };
+    List<string> war_wep1 = new List<string> { "Sword", "Warhammer" };
+    List<string> war_ab1 = new List<string> { "Cleave", "Stun" };
     //Priest weapons/abilities
-    List<string> pri_wep1 = new List<string> { "pri Wep 1.1", "pri Wep 1.2" };
-    List<string> pri_ab1 = new List<string> { "pri ab 1.1", "pri ab 1.2" };
+    List<string> pri_wep1 = new List<string> { "Mace", "Morning Star" };
+    List<string> pri_ab1 = new List<string> { "Heal", "Buff" };
     //Mage weapons/abilities
-    List<string> mag_wep1 = new List<string> { "mag Wep 1.1", "mag Wep 1.2" };
-    List<string> mag_ab1 = new List<string> { "mag ab 1.1", "mag ab 1.2" };
+    List<string> mag_wep1 = new List<string> { "Staff", "Wand" };
+    List<string> mag_ab1 = new List<string> { "Fireball", "Magic Missile" };
     //Rogue weapons/abilites
-    List<string> rog_wep1 = new List<string> { "rog Wep 1.1", "rog Wep 1.2" };
-    List<string> rog_ab1 = new List<string> { "rog ab 1.1", "rog ab 1.2" };
+    List<string> rog_wep1 = new List<string> { "Dagger", "Dual Daggers" };
+    List<string> rog_ab1 = new List<string> { "Stab", "Slice" };
     //Marksman weapons/abilities
-    List<string> mar_wep1 = new List<string> { "mar Wep 1.1", "mar Wep 1.2" };
-    List<string> mar_ab1 = new List<string> { "mar ab 1.1", "mar ab 1.2" };
+    List<string> mar_wep1 = new List<string> { "Crossbow", "Long Bow" };
+    List<string> mar_ab1 = new List<string> { "Snipe", "Rapid Shot" };
 
     //for storing values for unit 1
     public Dropdown u1w1;

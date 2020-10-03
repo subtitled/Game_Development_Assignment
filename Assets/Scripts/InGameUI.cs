@@ -31,15 +31,6 @@ public class InGameSelection: MonoBehaviour {
         //end turn
     }
     //code for using second weapon after clicking button
-    public void UseWepTwo()
-    {
-        //show grid based on range of weapon
-        //allow player to choose grid spot that contains enemy in range to attack
-        //get weapon information + unit stats from unit sheet
-        //calculate damage
-        //take damage away from target health
-        //end turn
-    }
     //code for using ability one after clicking button
     public void AbilityOne()
     {
@@ -51,13 +42,5 @@ public class InGameSelection: MonoBehaviour {
         //end turn
     }
     //code for using ability two after clicking button
-    public void AbilityTwo()
-    {
-        //show grid based on range of ability
-        //allow player to choose grid spot that contains enemy in range to attack or friendly in range to support
-        //get ability information + stats from unit sheet
-        //calculate damage/healing/stat boost
-        //apply to target
-        //end turn
-    }
+
 }

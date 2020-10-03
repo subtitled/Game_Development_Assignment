@@ -2,30 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//USED FOR SPAWNING PLAYER UNITS ON MAP IN SET POSITIONS
 public class spawning : MonoBehaviour
 {
-    public GameObject[] spawnPointList;
-    public GameObject[] classModels;
 
+    public GameObject[] spawnPointList; //contains possible spawn points
+    public GameObject[] classModels; //contains possible model pref
+
+    //for storing class values to display correct model
     public int unitOne;
     public int unitTwo;
     public int unitThree;
     public int unitFour;
     public int unitFive;
 
-    // Start is called before the first frame update
+
     public void PlayerSpawn()
     {
-        //get value of class
-        //switch
-        //spawn depending on number
-        //do 5 times
+        //sets class values to variables
         unitOne = PlayerPrefs.GetInt("UnitOne");
         unitTwo = PlayerPrefs.GetInt("UnitTwo");
         unitThree = PlayerPrefs.GetInt("UnitThree");
         unitFour = PlayerPrefs.GetInt("UnitFour");
         unitFive = PlayerPrefs.GetInt("UnitFive");
 
+        //will spawn models based on what the player chose in team selection, will set their unit number to the correct value
         switch (unitOne)
         {
             case 0:
@@ -144,9 +145,4 @@ public class spawning : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
