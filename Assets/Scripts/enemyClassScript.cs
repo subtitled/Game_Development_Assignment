@@ -20,6 +20,8 @@ public class enemyClassScript : MonoBehaviour
     public int enemyClassNum;
     public int unitNum;
 
+    //setup for UI holder
+    public GameObject enemyUI;
     // Start is called before the first frame update
     void Start()
     {

@@ -38,6 +38,9 @@ public class classScript : MonoBehaviour
     private GameObject mapControl;
     private NavMeshAgent nav;
 
+    //Holder for UI to be enabled/disabled
+    public GameObject classUI;
+
     // Start is called before the first frame update
     void Start()
     {

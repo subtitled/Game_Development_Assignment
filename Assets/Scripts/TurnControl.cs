@@ -45,6 +45,10 @@ public class TurnControl : MonoBehaviour
     private int player3XP = 0;
     private int player4XP = 0;
     private int player5XP = 0;
+
+    // Loss and Victory UI
+    public GameObject lossUI;
+    public GameObject victoryUI;
     
     
     // Start is called before the first frame update
@@ -183,6 +187,7 @@ public class TurnControl : MonoBehaviour
         // Ends when signalled by receiver.
         if (!activated)
         {
+
             // Checks if all characters have had their turn.
             if (characterOrder >= initiativeOrder.Count)
             {
@@ -223,6 +228,15 @@ public class TurnControl : MonoBehaviour
                 activeCharacter = initiativeOrder[characterOrder];
                 characterOrder += 1;
                 currState = FSMturn.Wait;
+                //code to show UI when unit's turn
+                if (activeCharacter.CompareTag("Player"))
+                {
+                    activeCharacter.GetComponent<classScript>().classUI.gameObject.SetActive(true);
+                }
+                else if (activeCharacter.CompareTag("Enemy"))
+                {
+                    activeCharacter.GetComponent<enemyClassScript>().enemyUI.gameObject.SetActive(true);
+                }
             }
             
         }
@@ -236,6 +250,7 @@ public class TurnControl : MonoBehaviour
         if (activated)
         {
             currState = FSMturn.Wait;
+
         }
         
         // Increments or resets values.
@@ -246,13 +261,22 @@ public class TurnControl : MonoBehaviour
         //print("Start Turn " + turnCount);
 
         // UI End Turn and Turn Start Effects.
+        //code needs to be fixed to hide at end of turn
+        if (activeCharacter.CompareTag("Player"))
+        {
+            activeCharacter.GetComponent<classScript>().classUI.gameObject.SetActive(false);
+        }
+        else if (activeCharacter.CompareTag("Enemy"))
+        {
+            activeCharacter.GetComponent<enemyClassScript>().enemyUI.gameObject.SetActive(false);
+        }
 
     }
 
     protected void UpdateVictoryState()
     {
         // Victory UI effects
-        
+        victoryUI.gameObject.SetActive(true);
         
         // Distribute victory bonus and calculate total scores.
         player1XP += victoryBonus;
@@ -267,8 +291,8 @@ public class TurnControl : MonoBehaviour
     protected void UpdateDefeatState()
     {
         // Defeat UI effects
-        
-        
+        lossUI.gameObject.SetActive(true);
+
         // No victory bonus, calculate total score.
         totalScore = player1XP + player2XP + player3XP + player4XP + player5XP;
         
