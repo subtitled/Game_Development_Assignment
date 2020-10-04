@@ -82,7 +82,11 @@ public class classScript : MonoBehaviour
         mapControl = GameObject.Find("MapControl");
         nav = GetComponent<NavMeshAgent>();
         mousePointer = GameObject.Find("MousePointer");
-        
+       
+        // Initiate healbar variables
+        hbLength = healthBar.rectTransform.rect.width;
+        hbHeight = healthBar.rectTransform.rect.height;
+
         //gets weapon and ability that was saved on the loadout selection screen
         switch (unitNum)
         {

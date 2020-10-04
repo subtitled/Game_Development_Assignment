@@ -7,6 +7,7 @@ public class giveUp : MonoBehaviour
 {
     public GameObject giveUpBox;
     public GameObject lossUI;
+    public GameObject turnControls;
 
     public void boxOpen()
     {
@@ -16,6 +17,6 @@ public class giveUp : MonoBehaviour
     public void giveUpNow()
     {
         giveUpBox.gameObject.SetActive(false);
-        lossUI.gameObject.SetActive(true);
+        turnControls.GetComponent<TurnControl>().UpdateDefeatState();
     }
 }

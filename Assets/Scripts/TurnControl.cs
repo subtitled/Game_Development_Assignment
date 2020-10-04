@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurnControl : MonoBehaviour
 {
@@ -49,12 +50,15 @@ public class TurnControl : MonoBehaviour
     // Loss and Victory UI
     public GameObject lossUI;
     public GameObject victoryUI;
+
+    // Text and Score UI elements
+    public Text turnsText;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        turnsText.text = "Turns: " + turnCount;
         spawnPoints = GameObject.Find("spawnPoints");
         spawnPoints.GetComponent<spawning>().PlayerSpawn();
         enemySpawns = GameObject.Find("enemySpawns");
@@ -216,6 +220,7 @@ public class TurnControl : MonoBehaviour
         // Increments or resets values.
         characterOrder = 0;
         turnCount += 1;
+        turnsText.text = "Turns: " + turnCount;
         currState = FSMturn.Wait;
         // DEBUG for turn end.
         //print("Start Turn " + turnCount);
@@ -236,17 +241,30 @@ public class TurnControl : MonoBehaviour
         player4XP += victoryBonus;
         player5XP += victoryBonus;
         totalScore = player1XP + player2XP + player3XP + player4XP + player5XP;
-
+        PlayerPrefs.SetInt("U1XP", player1XP);
+        PlayerPrefs.SetInt("U2XP", player2XP);
+        PlayerPrefs.SetInt("U3XP", player3XP);
+        PlayerPrefs.SetInt("U4XP", player4XP);
+        PlayerPrefs.SetInt("U5XP", player5XP);
+        PlayerPrefs.SetInt("TotalScore", totalScore);
+        PlayerPrefs.SetInt("VorL", 1);
     }
 
-    protected void UpdateDefeatState()
+    public void UpdateDefeatState()
     {
         // Defeat UI effects
         lossUI.gameObject.SetActive(true);
 
         // No victory bonus, calculate total score.
         totalScore = player1XP + player2XP + player3XP + player4XP + player5XP;
-        
+        PlayerPrefs.SetInt("U1XP", player1XP);
+        PlayerPrefs.SetInt("U2XP", player2XP);
+        PlayerPrefs.SetInt("U3XP", player3XP);
+        PlayerPrefs.SetInt("U4XP", player4XP);
+        PlayerPrefs.SetInt("U5XP", player5XP);
+        PlayerPrefs.SetInt("TotalScore", totalScore);
+        PlayerPrefs.SetInt("VorL", 0);
+
     }
 
     void ApplyXP(int addXP)

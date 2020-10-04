@@ -114,6 +114,10 @@ public class enemyFSM : MonoBehaviour
         
         // Set to Wait State.
         currState = FSMstate.Wait;
+
+        // Initiate healbar variables
+        hbLength = healthBar.rectTransform.rect.width;
+        hbHeight = healthBar.rectTransform.rect.height;
     }
 
     // Update is called once per frame
