@@ -5,15 +5,17 @@ using UnityEngine;
 public class enemyClassScript : MonoBehaviour
 {
     //damage setup
-    public int w1dmg;
-    public int a1dmg;
+    public float w1dmg;
+    public float a1dmg;
 
     //Stat setup (might change later)
     public int strength;
     public int agility;
     public int intelligence;
-    public int health;
-    public int movement;
+    public float health;
+    public float movement;
+    public float alertRange;
+    public float engagedRange;
     public int initiative; //change depending on class
 
     //extra setup for referencing
@@ -22,10 +24,9 @@ public class enemyClassScript : MonoBehaviour
 
     //setup for UI holder
     public GameObject enemyUI;
-
-
     // Start is called before the first frame update
-    void Start()
+    
+    public void ClassSetUp()
     {
         //generates stats for classes (change value ranges based on class)
         switch (enemyClassNum)
@@ -35,7 +36,9 @@ public class enemyClassScript : MonoBehaviour
                 agility = Random.Range(5, 7);
                 intelligence = Random.Range(2, 5);
                 health = Random.Range(110, 130);
-                movement = 3;
+                movement = 6;
+                alertRange = 14.0f;
+                engagedRange = 7.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
                 a1dmg = 30;
@@ -45,7 +48,9 @@ public class enemyClassScript : MonoBehaviour
                 agility = Random.Range(5, 7);
                 intelligence = Random.Range(6, 8);
                 health = Random.Range(100, 120);
-                movement = 3;
+                movement = 5;
+                alertRange = 13.0f;
+                engagedRange = 6.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
                 a1dmg = 30;
@@ -55,7 +60,9 @@ public class enemyClassScript : MonoBehaviour
                 agility = Random.Range(6, 8);
                 intelligence = Random.Range(7, 9);
                 health = Random.Range(90, 110);
-                movement = 3;
+                movement = 5;
+                alertRange = 13.0f;
+                engagedRange = 8.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
                 a1dmg = 30;
@@ -65,7 +72,9 @@ public class enemyClassScript : MonoBehaviour
                 agility = Random.Range(7, 9);
                 intelligence = Random.Range(5, 6);
                 health = Random.Range(100, 110);
-                movement = 3;
+                movement = 6;
+                alertRange = 14.0f;
+                engagedRange = 7.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
                 a1dmg = 30;
@@ -75,11 +84,101 @@ public class enemyClassScript : MonoBehaviour
                 agility = Random.Range(6, 8);
                 intelligence = Random.Range(2, 5);
                 health = Random.Range(90, 110);
-                movement = 3;
+                movement = 4;
+                alertRange = 15.0f;
+                engagedRange = 10.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
                 a1dmg = 30;
                 break;
         }
     }
+
+    public void Attack(Vector3 target)
+    {
+        // Basic attack, hits targets in a small area.
+        Collider[] hits = Physics.OverlapSphere(target, 1f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", w1dmg);
+            }
+        }
+    }
+
+    public void Defend(bool defendStatus)
+    {
+        // Blocks the first hit until the next turn.
+        defendStatus = true;
+    }
+    
+    public void WarriorAbility1()
+    {
+        // Damages nearby players.
+        Collider[] hits = Physics.OverlapSphere(transform.position, 3.0f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", a1dmg);
+            }
+        }
+    }
+    
+    public void PriestAbility1(Vector3 target)
+    {
+        // Heals allies within a target area.
+        Collider[] hits = Physics.OverlapSphere(target, 2.0f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Enemy"))
+            {
+                hit.SendMessage("ApplyDamage", -a1dmg);
+            }
+        }
+    }
+
+    public void MageAbility1(Vector3 target)
+    {
+        // Damage all targets in a targeted area.
+        Collider[] hits = Physics.OverlapSphere(target, 2.0f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", a1dmg);
+            }
+        }
+    }
+    
+    public void RogueAbility1(Vector3 target)
+    {
+        // Deals high damage to a single target.
+        Collider[] hits = Physics.OverlapSphere(target, 0.5f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", a1dmg*1.75f);
+            }
+        }
+    }
+
+    public void MarksmanAbility1(Vector3 target)
+    {
+        // Deals more damage to targets further away, less to close targets.
+        Collider[] hits = Physics.OverlapSphere(target, 0.5f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                float scaledDamage = a1dmg * (Vector3.Distance(transform.position, target) / 5f);
+                hit.SendMessage("ApplyDamage", scaledDamage);
+            }
+        }
+    }
+
+
+
 }

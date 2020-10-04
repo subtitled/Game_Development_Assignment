@@ -29,17 +29,18 @@ public class enemyFSM : MonoBehaviour
     public bool move = false;
     
     // Character base values.
-    public int baseInitiative = 10;
-    public float turnInitiative;
+    public int initiative;
 
-    public int maxHealth;
-    private int currHealth;
+    public float maxHealth;
+    public float currHealth;
     public int killXP;
-
+    public int enemyClassNum;
+    public bool defendStatus;
+    
     // Movement and detection ranges.
-    public float alertRange = 18.0f;
-    public float engagedRange = 12.0f;
-    public float movementRange = 6.0f;
+    public float alertRange;
+    public float engagedRange;
+    public float movementRange;
     private float moveDistance;
     // Movement speed/turn attributes assigned through NavMesh properties.
     
@@ -49,14 +50,15 @@ public class enemyFSM : MonoBehaviour
     public int currentWaypoint;
     private Vector3 destination;
 
-    // Connect to map control and players.
+    // Connect to map control and characters.
     private GameObject mapControl;
     private GameObject[] playerCharacters;
+    private GameObject[] enemyCharacters;
     
     // Allows for the players to be sorted by specific criteria.
     private List<GameObject> sortedPlayers = new List<GameObject>();
 
-    // UI objects.
+    // UI objects switch.
     private GameObject toggleUI;
 
     // Healthbar objects.
@@ -65,12 +67,24 @@ public class enemyFSM : MonoBehaviour
     float hbHeight;
 
     // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
         // Initiate variables and connect to components.
-        currHealth = maxHealth;
         nav = GetComponent<NavMeshAgent>();
         mapControl = GameObject.Find("MapControl");
+        patrolPoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        
+        // Initiate and retrieve class specific values.
+        GetComponent<enemyClassScript>().ClassSetUp();
+        enemyClassNum = GetComponent<enemyClassScript>().enemyClassNum;
+        maxHealth = GetComponent<enemyClassScript>().health;
+        currHealth = maxHealth;
+        initiative = GetComponent<enemyClassScript>().initiative;
+        alertRange = GetComponent<enemyClassScript>().alertRange;
+        engagedRange = GetComponent<enemyClassScript>().engagedRange;
+        movementRange = GetComponent<enemyClassScript>().movement;
+        
         // Retrieve Player characters, build a sortable list.
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");
         if (playerCharacters.Length > 0)
@@ -80,6 +94,10 @@ public class enemyFSM : MonoBehaviour
                 sortedPlayers.Add(character);
             }
         }
+        
+        // Retrieve allied enemy characters
+        enemyCharacters = GameObject.FindGameObjectsWithTag("Enemy");
+        
         // Assign initial patrol waypoint.
         if (patrolPoints.Length > 0)
         {
@@ -263,7 +281,8 @@ public class enemyFSM : MonoBehaviour
             currState = FSMstate.Moving;
         }
         
-        // Does not utilise actions if no players are in range.
+        // Defends if no players are in range.
+        GetComponent<enemyClassScript>().Defend(defendStatus);
         action = false;
     }
 
@@ -310,12 +329,150 @@ public class enemyFSM : MonoBehaviour
             currState = FSMstate.Moving;
         }
         
+        // DEBUG to skip turn.
+        //action = false;
         /*
          * Action Logic
          * Customised for individual enemy types, performing and action makes
          * "action = false" to be within the chosen action function. 
          */
-        action = false;
+        switch (enemyClassNum)
+        {
+            case 0: //enemyWarrior
+                if (Vector3.Distance(transform.position, sortedPlayers[2].transform.position) <= 3f)
+                {
+                    // If the closest three players are within range, utilise ability.
+                    GetComponent<enemyClassScript>().WarriorAbility1();
+                }
+                if (Vector3.Distance(transform.position, sortedPlayers[0].transform.position) <= 1.25f)
+                {
+                    // Attacks the nearest player within melee range.
+                    GetComponent<enemyClassScript>().Attack(sortedPlayers[0].transform.position);
+                }
+                else
+                {
+                    // Defends if it can't attack.
+                    GetComponent<enemyClassScript>().Defend(defendStatus);
+                }
+                action = false;
+                break;
+            case 1: //enemyPriest
+                foreach (GameObject ally in enemyCharacters)
+                {
+                    // Attempts to heal an injured allied character within range.
+                    if ((ally.GetComponent<enemyFSM>().currHealth / ally.GetComponent<enemyFSM>().maxHealth) <= 0.5f & 
+                        Vector3.Distance(transform.position, ally.transform.position) <= 6.0f)
+                    {
+                        GetComponent<enemyClassScript>().PriestAbility1(ally.transform.position);
+                        break;
+                    }
+                }
+                if (Vector3.Distance(transform.position, sortedPlayers[0].transform.position) <= 1.25f)
+                {
+                    // Attacks the nearest player within melee range.
+                    GetComponent<enemyClassScript>().Attack(sortedPlayers[0].transform.position);
+                }
+                else
+                {
+                    // Defends if it can't attack.
+                    GetComponent<enemyClassScript>().Defend(defendStatus);
+                }
+                action = false;
+                break;
+            case 2: //enemyMage
+                bool attacked = false;
+                for (int i = 0; i < sortedPlayers.Count; i++)
+                {
+                    for (int j = i+1; j < sortedPlayers.Count; j++)
+                    {
+                        if (Vector3.Distance(sortedPlayers[i].transform.position, sortedPlayers[j].transform.position) <= 4f)
+                        {
+                            if (Vector3.Distance(transform.position,(sortedPlayers[i].transform.position + (sortedPlayers[i].transform.position - sortedPlayers[j].transform.position) / 2)) <= 6f)
+                            {
+                                // Targets a point in range between two adjacent players.
+                                GetComponent<enemyClassScript>().MageAbility1((sortedPlayers[i].transform.position + (sortedPlayers[i].transform.position -
+                                        sortedPlayers[j].transform.position) / 2));
+                                attacked = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (attacked)
+                    {
+                        break;
+                    }
+                }
+                if (Vector3.Distance(transform.position, sortedPlayers[0].transform.position) <= 6f)
+                {
+                    // Attacks the nearest player within range.
+                    GetComponent<enemyClassScript>().Attack(sortedPlayers[0].transform.position);
+                }
+                else
+                {
+                    // Defends if it can't attack.
+                    GetComponent<enemyClassScript>().Defend(defendStatus);
+                }
+                action = false;
+                break;
+            case 3: //enemyRogue
+                // Determines order of players by health.
+                sortedPlayers.Sort(delegate(GameObject o, GameObject o1)
+                {
+                    return ((o.gameObject.GetComponent<classScript>().health).CompareTo(o1.gameObject.GetComponent<classScript>().health));
+                });
+                sortedPlayers.Reverse();
+                foreach (GameObject player in sortedPlayers)
+                {
+                    if (Vector3.Distance(transform.position, player.transform.position) <= 1.25f)
+                    {
+                        // Targets highest health player in range.
+                        GetComponent<enemyClassScript>().RogueAbility1(player.transform.position);
+                        break;
+                    }
+                }
+                
+                // Determines order of players by proximity.
+                sortedPlayers.Sort(delegate(GameObject o, GameObject o1)
+                {
+                    return (((transform.position - o.transform.position).sqrMagnitude).CompareTo((transform.position - o1.transform.position).sqrMagnitude));
+                });
+                if (Vector3.Distance(transform.position, sortedPlayers[0].transform.position) <= 1.25f)
+                {
+                    // Attacks the nearest player within melee range.
+                    GetComponent<enemyClassScript>().Attack(sortedPlayers[0].transform.position);
+                }
+                else
+                {
+                    // Defends if it can't attack.
+                    GetComponent<enemyClassScript>().Defend(defendStatus);
+                }
+                action = false;
+                break;
+            case 4: //enemyMarksman
+                for (int i = (sortedPlayers.Count - 1); i >= 0; i--)
+                {
+                    if (Vector3.Distance(transform.position, sortedPlayers[i].transform.position) <= 8f)
+                    {
+                        // Targets farthest player in range.
+                        GetComponent<enemyClassScript>().MarksmanAbility1(sortedPlayers[i].transform.position);
+                        break;
+                    }
+                }
+                if (Vector3.Distance(transform.position, sortedPlayers[0].transform.position) <= 8f)
+                {
+                    // Attacks the nearest player within range.
+                    GetComponent<enemyClassScript>().Attack(sortedPlayers[0].transform.position);
+                }
+                else
+                {
+                    // Defends if it can't attack.
+                    GetComponent<enemyClassScript>().Defend(defendStatus);
+                }
+                action = false;
+                break;
+        }
+        
+        
     }
     
     protected void UpdateDeadStatus()
@@ -340,6 +497,7 @@ public class enemyFSM : MonoBehaviour
             active = true;
             action = true;
             move = true;
+            defendStatus = false;
             moveDistance = movementRange;
             // DEBUG for activation.
             //print(name + " activated");
@@ -350,7 +508,28 @@ public class enemyFSM : MonoBehaviour
     {
         // Reciever for damage taken.
         
-        currHealth -= damage;
+        if (!defendStatus)
+        {
+            // If not defending, take damage.
+            currHealth -= damage;
+        }
+        if (defendStatus)
+        {
+            if (damage > 0)
+            {
+                // If defending, block the hit.
+                defendStatus = false;
+            }
+            if (damage < 0)
+            {
+                // Allows healing if defending.
+                currHealth -= damage;
+                if (currHealth > maxHealth)
+                {
+                    currHealth = maxHealth;
+                }
+            }
+        }
 
         // Change appearance of healthbar to reflect damage taken
         healthBar.rectTransform.sizeDelta = new Vector2(hbLength * (currHealth / 100.0f), hbHeight);

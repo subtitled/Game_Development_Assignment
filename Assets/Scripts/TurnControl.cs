@@ -69,11 +69,8 @@ public class TurnControl : MonoBehaviour
         {
             foreach (GameObject character in enemyCharacters)
             {
-                // Get and randomise enemy initiative, add to initiativeOrder for ordering.
-                character.gameObject.GetComponent<enemyFSM>().turnInitiative =
-                    character.gameObject.GetComponent<enemyFSM>().baseInitiative * Random.Range(0.7f, 1.3f);
+                // Add enemy characters to initiativeOrder for ordering.
                 initiativeOrder.Add(character);
-
             }
         }
         
@@ -81,12 +78,8 @@ public class TurnControl : MonoBehaviour
         {
             foreach (GameObject character in playerCharacters)
             {
-
-                // Get character initiative, add to initiativeOrder for ordering.
-                //character.gameObject.GetComponent<classScript>().turnInitiative = 
-                //character.gameObject.GetComponent<classScript>().baseInitiative * Random.Range(0.7f, 1.3f);
+                // Add player characters to initiativeOrder for ordering.
                 initiativeOrder.Add(character);
-
             }
         }
         
@@ -101,7 +94,7 @@ public class TurnControl : MonoBehaviour
                 // Confirms if enemy or player.
                 if (o.CompareTag("Enemy"))
                 {
-                    oInit += o.GetComponent<enemyFSM>().turnInitiative;
+                    oInit += o.GetComponent<enemyFSM>().initiative;
                 }
                 else if (o.CompareTag("Player"))
                 {
@@ -111,7 +104,7 @@ public class TurnControl : MonoBehaviour
                 // Confirms if enemy or player.
                 if (o1.CompareTag("Enemy"))
                 {
-                    o1Init += o1.GetComponent<enemyFSM>().turnInitiative;
+                    o1Init += o1.GetComponent<enemyFSM>().initiative;
                 }
                 else if (o1.CompareTag("Player"))
                 {

@@ -324,6 +324,84 @@ public class classScript : MonoBehaviour
         }
     }
 
+    public void Attack(Vector3 target)
+    {
+        // Basic attack, hits targets in a small area.
+        Collider[] hits = Physics.OverlapSphere(target, 1f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", w1dmg);
+            }
+        }
+    }
+    
+    public void WarriorAbility1()
+    {
+        // Damages nearby players.
+        Collider[] hits = Physics.OverlapSphere(transform.position, 3.0f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", a1dmg);
+            }
+        }
+    }
+    
+    public void PriestAbility1(Vector3 target)
+    {
+        // Heals allies within a target area.
+        Collider[] hits = Physics.OverlapSphere(target, 3.0f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Enemy"))
+            {
+                hit.SendMessage("ApplyDamage", -a1dmg);
+            }
+        }
+    }
+
+    public void MageAbility1(Vector3 target)
+    {
+        // Damage all targets in a targeted area.
+        Collider[] hits = Physics.OverlapSphere(target, 3.0f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", a1dmg);
+            }
+        }
+    }
+    
+    public void RogueAbility1(Vector3 target)
+    {
+        // Deals high damage to a single target.
+        Collider[] hits = Physics.OverlapSphere(target, 0.5f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                hit.SendMessage("ApplyDamage", a1dmg*1.75f);
+            }
+        }
+    }
+
+    public void MarksmanAbility1(Vector3 target)
+    {
+        // Deals more damage to targets further away, less to close targets.
+        Collider[] hits = Physics.OverlapSphere(target, 1.0f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                float scaledDamage = a1dmg * (Vector3.Distance(transform.position, target) / 3);
+                hit.SendMessage("ApplyDamage", scaledDamage);
+            }
+        }
+    }
     
     void ApplyActiveStatus(bool message)
     {
