@@ -7,17 +7,19 @@ public class UIButtonScript : MonoBehaviour
 {
     public GameObject[] buttonList; //used for storing button objects on the game UI
     public GameObject model; //used for storing the model that is spawned to get the values from their class number, weapon and ability
-
+    public GameObject[] unitTexts;
     //used for storing unit values
     public int classNum;
     public int wep1;
     public int abil1;
+    public int unitNum;
 
 
     void Start()
     {
         //sets the values for class number, weapon and ability
         classNum = model.GetComponent<classScript>().classNum;
+        unitNum = model.GetComponent<classScript>().unitNum;
         wep1 = model.GetComponent<classScript>().wep_1;
         abil1 = model.GetComponent<classScript>().abil_1;
 
@@ -126,16 +128,25 @@ public class UIButtonScript : MonoBehaviour
                 break;
         }
 
+        switch (unitNum)
+        {
+            case 0:
+                unitTexts[0].gameObject.SetActive(true);
+                break;
+            case 1:
+                unitTexts[1].gameObject.SetActive(true);
+                break;
+            case 2:
+                unitTexts[2].gameObject.SetActive(true);
+                break;
+            case 3:
+                unitTexts[3].gameObject.SetActive(true);
+                break;
+            case 4:
+                unitTexts[4].gameObject.SetActive(true);
+                break;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //SHOULD IT BE IN UPDATE? MY BRAIN IS DIE
-        //Check whether or not is player turn
-        //if not player turn, hide playerTurnUI object
-        //if player turn, show playerTUrnUI object
-
-       
-    }
 }
