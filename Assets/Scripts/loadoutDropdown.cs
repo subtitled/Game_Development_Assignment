@@ -12,21 +12,36 @@ public class loadoutDropdown : MonoBehaviour
     public int unitFour;
     public int unitFive;
 
-    //Warrior weapons/abilities
+    //Warrior weapons/abilities/descriptions
     List<string> war_wep1 = new List<string> { "Sword", "Warhammer" };
+    List<string> war_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your strength stat." };
     List<string> war_ab1 = new List<string> { "Cleave", "Stun" };
-    //Priest weapons/abilities
+    List<string> war_ab1_desc = new List<string> { "Deal damage in an area around the Warrior.", "Deal a small amount of damage but target skips next turn. " };
+    //Priest weapons/abilities/descriptions
     List<string> pri_wep1 = new List<string> { "Mace", "Morning Star" };
+    List<string> pri_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your intelligence stat." };
     List<string> pri_ab1 = new List<string> { "Heal", "Buff" };
-    //Mage weapons/abilities
+    List<string> pri_ab1_desc = new List<string> { "Increase a units health by an amount. Health can not go above the maximum for that unit.", "Increases a unit's base stat by 1 for 2 turns." };
+    //Mage weapons/abilities/descriptions
     List<string> mag_wep1 = new List<string> { "Staff", "Wand" };
+    List<string> mag_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your intelligence stat." };
     List<string> mag_ab1 = new List<string> { "Fireball", "Magic Missile" };
-    //Rogue weapons/abilites
+    List<string> mag_ab1_desc = new List<string> { "Does some damage.", "Shoots out 3 attacks that deal a small amount of damage* intelligence." };
+    //Rogue weapons/abilites/descriptions
     List<string> rog_wep1 = new List<string> { "Dagger", "Dual Daggers" };
+    List<string> rog_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your agility stat." };
     List<string> rog_ab1 = new List<string> { "Stab", "Slice" };
-    //Marksman weapons/abilities
+    List<string> rog_ab1_desc = new List<string> { "Does more damage than a regular attack but in a smaller area.", "Does a small amount of damage * agility in an area in front of the unit." };
+    //Marksman weapons/abilities/descriptions
     List<string> mar_wep1 = new List<string> { "Crossbow", "Long Bow" };
+    List<string> mar_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your agility stat." };
     List<string> mar_ab1 = new List<string> { "Snipe", "Rapid Shot" };
+    List<string> mar_ab1_desc = new List<string> { "Long range attack that does more damage the further the unit is away from the target.", "Shoots out 3 attacks that deal a small amount of damage* agility." };
+
+    //storing weapon description boxes
+    public Text[] wepDesc;
+    //storing ability description boxes
+    public Text[] abilDesc;
 
     //for storing values for unit 1
     public Dropdown u1w1;
@@ -220,7 +235,524 @@ public class loadoutDropdown : MonoBehaviour
                 break;
         }
     }
-
+    public void FixedUpdate()
+    {
+        switch (unitOne)
+        {
+            case 0:
+                switch (u1w1.value)
+                {
+                    case 0:
+                        wepDesc[0].text = war_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[0].text = war_wep1_desc[1];
+                        break;
+                }
+                switch (u1a1.value)
+                {
+                    case 0:
+                        abilDesc[0].text = war_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[0].text = war_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 1:
+                switch (u1w1.value)
+                {
+                    case 0:
+                        wepDesc[0].text = pri_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[0].text = pri_wep1_desc[1];
+                        break;
+                }
+                switch (u1a1.value)
+                {
+                    case 0:
+                        abilDesc[0].text = pri_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[0].text = pri_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 2:
+                switch (u1w1.value)
+                {
+                    case 0:
+                        wepDesc[0].text = mag_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[0].text = mag_wep1_desc[1];
+                        break;
+                }
+                switch (u1a1.value)
+                {
+                    case 0:
+                        abilDesc[0].text = mag_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[0].text = mag_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 3:
+                switch (u1w1.value)
+                {
+                    case 0:
+                        wepDesc[0].text = rog_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[0].text = rog_wep1_desc[1];
+                        break;
+                }
+                switch (u1a1.value)
+                {
+                    case 0:
+                        abilDesc[0].text = rog_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[0].text = rog_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 4:
+                switch (u1w1.value)
+                {
+                    case 0:
+                        wepDesc[0].text = mar_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[0].text = mar_wep1_desc[1];
+                        break;
+                }
+                switch (u1a1.value)
+                {
+                    case 0:
+                        abilDesc[0].text = mar_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[0].text = mar_ab1_desc[1];
+                        break;
+                }
+                break;
+        }
+        switch (unitTwo)
+        {
+            case 0:
+                switch (u2w1.value)
+                {
+                    case 0:
+                        wepDesc[1].text = war_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[1].text = war_wep1_desc[1];
+                        break;
+                }
+                switch (u2a1.value)
+                {
+                    case 0:
+                        abilDesc[1].text = war_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[1].text = war_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 1:
+                switch (u2w1.value)
+                {
+                    case 0:
+                        wepDesc[1].text = pri_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[1].text = pri_wep1_desc[1];
+                        break;
+                }
+                switch (u2a1.value)
+                {
+                    case 0:
+                        abilDesc[1].text = pri_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[1].text = pri_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 2:
+                switch (u2w1.value)
+                {
+                    case 0:
+                        wepDesc[1].text = mag_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[1].text = mag_wep1_desc[1];
+                        break;
+                }
+                switch (u2a1.value)
+                {
+                    case 0:
+                        abilDesc[1].text = mag_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[1].text = mag_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 3:
+                switch (u2w1.value)
+                {
+                    case 0:
+                        wepDesc[1].text = rog_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[1].text = rog_wep1_desc[1];
+                        break;
+                }
+                switch (u2a1.value)
+                {
+                    case 0:
+                        abilDesc[1].text = rog_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[1].text = rog_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 4:
+                switch (u2w1.value)
+                {
+                    case 0:
+                        wepDesc[1].text = mar_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[1].text = mar_wep1_desc[1];
+                        break;
+                }
+                switch (u2a1.value)
+                {
+                    case 0:
+                        abilDesc[1].text = mar_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[1].text = mar_ab1_desc[1];
+                        break;
+                }
+                break;
+        }
+        switch (unitThree)
+        {
+            case 0:
+                switch (u3w1.value)
+                {
+                    case 0:
+                        wepDesc[2].text = war_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[2].text = war_wep1_desc[1];
+                        break;
+                }
+                switch (u3a1.value)
+                {
+                    case 0:
+                        abilDesc[2].text = war_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[2].text = war_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 1:
+                switch (u3w1.value)
+                {
+                    case 0:
+                        wepDesc[2].text = pri_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[2].text = pri_wep1_desc[1];
+                        break;
+                }
+                switch (u3a1.value)
+                {
+                    case 0:
+                        abilDesc[2].text = pri_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[2].text = pri_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 2:
+                switch (u3w1.value)
+                {
+                    case 0:
+                        wepDesc[2].text = mag_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[2].text = mag_wep1_desc[1];
+                        break;
+                }
+                switch (u3a1.value)
+                {
+                    case 0:
+                        abilDesc[2].text = mag_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[2].text = mag_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 3:
+                switch (u3w1.value)
+                {
+                    case 0:
+                        wepDesc[2].text = rog_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[2].text = rog_wep1_desc[1];
+                        break;
+                }
+                switch (u3a1.value)
+                {
+                    case 0:
+                        abilDesc[2].text = rog_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[2].text = rog_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 4:
+                switch (u3w1.value)
+                {
+                    case 0:
+                        wepDesc[2].text = mar_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[2].text = mar_wep1_desc[1];
+                        break;
+                }
+                switch (u3a1.value)
+                {
+                    case 0:
+                        abilDesc[2].text = mar_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[2].text = mar_ab1_desc[1];
+                        break;
+                }
+                break;
+        }
+        switch (unitFour)
+        {
+            case 0:
+                switch (u4w1.value)
+                {
+                    case 0:
+                        wepDesc[3].text = war_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[3].text = war_wep1_desc[1];
+                        break;
+                }
+                switch (u4a1.value)
+                {
+                    case 0:
+                        abilDesc[3].text = war_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[3].text = war_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 1:
+                switch (u4w1.value)
+                {
+                    case 0:
+                        wepDesc[3].text = pri_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[3].text = pri_wep1_desc[1];
+                        break;
+                }
+                switch (u4a1.value)
+                {
+                    case 0:
+                        abilDesc[3].text = pri_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[3].text = pri_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 2:
+                switch (u4w1.value)
+                {
+                    case 0:
+                        wepDesc[3].text = mag_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[3].text = mag_wep1_desc[1];
+                        break;
+                }
+                switch (u4a1.value)
+                {
+                    case 0:
+                        abilDesc[3].text = mag_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[3].text = mag_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 3:
+                switch (u4w1.value)
+                {
+                    case 0:
+                        wepDesc[3].text = rog_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[3].text = rog_wep1_desc[1];
+                        break;
+                }
+                switch (u4a1.value)
+                {
+                    case 0:
+                        abilDesc[3].text = rog_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[3].text = rog_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 4:
+                switch (u4w1.value)
+                {
+                    case 0:
+                        wepDesc[3].text = mar_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[3].text = mar_wep1_desc[1];
+                        break;
+                }
+                switch (u4a1.value)
+                {
+                    case 0:
+                        abilDesc[3].text = mar_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[3].text = mar_ab1_desc[1];
+                        break;
+                }
+                break;
+        }
+        switch (unitFive)
+        {
+            case 0:
+                switch (u5w1.value)
+                {
+                    case 0:
+                        wepDesc[4].text = war_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[4].text = war_wep1_desc[1];
+                        break;
+                }
+                switch (u5a1.value)
+                {
+                    case 0:
+                        abilDesc[4].text = war_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[4].text = war_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 1:
+                switch (u5w1.value)
+                {
+                    case 0:
+                        wepDesc[4].text = pri_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[4].text = pri_wep1_desc[1];
+                        break;
+                }
+                switch (u5a1.value)
+                {
+                    case 0:
+                        abilDesc[4].text = pri_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[4].text = pri_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 2:
+                switch (u5w1.value)
+                {
+                    case 0:
+                        wepDesc[4].text = mag_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[4].text = mag_wep1_desc[1];
+                        break;
+                }
+                switch (u5a1.value)
+                {
+                    case 0:
+                        abilDesc[4].text = mag_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[4].text = mag_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 3:
+                switch (u5w1.value)
+                {
+                    case 0:
+                        wepDesc[4].text = rog_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[4].text = rog_wep1_desc[1];
+                        break;
+                }
+                switch (u5a1.value)
+                {
+                    case 0:
+                        abilDesc[4].text = rog_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[4].text = rog_ab1_desc[1];
+                        break;
+                }
+                break;
+            case 4:
+                switch (u5w1.value)
+                {
+                    case 0:
+                        wepDesc[4].text = mar_wep1_desc[0];
+                        break;
+                    case 1:
+                        wepDesc[4].text = mar_wep1_desc[1];
+                        break;
+                }
+                switch (u5a1.value)
+                {
+                    case 0:
+                        abilDesc[4].text = mar_ab1_desc[0];
+                        break;
+                    case 1:
+                        abilDesc[4].text = mar_ab1_desc[1];
+                        break;
+                }
+                break;
+        }
+    }
     //getting values of dropdown menu to save for later for Unit 1
     public void GetU1W1(int w1num)
     {

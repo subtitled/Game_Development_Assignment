@@ -2156,12 +2156,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Move- Click the button then click a location on the map to have your unit
-    move towards that location. NOTE: You can only move at the very start of your
-    unit''s turn.
+    move towards that location.
 
 
-    Defend - End your turn in your current location and take
-    less damage until the unit''s next turn.'
+    Defend - End your turn in your current location
+    and the next damage the unit takes will be blocked.'
 --- !u!222 &93376422
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9680,12 +9679,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Move- Click the button then click a location on the map to have your unit
-    move towards that location. NOTE: You can only move at the very start of your
-    unit''s turn.
+    move towards that location.
 
 
-    Defend - End your turn in your current location and take
-    less damage until the unit''s next turn.'
+    Defend - End your turn in your current location
+    and the next damage the unit takes will be blocked.'
 --- !u!222 &413668392
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16541,8 +16539,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fireball - Does some damage but I don't know how. Click on button then
-    click on unit you wish to attack.
+  m_Text: Fireball - Does some damage. Click on button then click on unit you wish
+    to attack.
 --- !u!222 &700274531
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17241,12 +17239,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Move- Click the button then click a location on the map to have your unit
-    move towards that location. NOTE: You can only move at the very start of your
-    unit''s turn.
+    move towards that location.
 
 
-    Defend - End your turn in your current location and take
-    less damage until the unit''s next turn.'
+    Defend - End your turn in your current location
+    and the next damage the unit takes will be blocked.'
 --- !u!222 &718333671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29326,13 +29323,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Move- Click the button then click a location on the map to have your unit
-    move towards that location. NOTE: You can only move at the very start of your
-    unit''s turn.
-
-
-    Defend - End your turn in your current location and take
-    less damage until the unit''s next turn.'
+  m_Text: "Move- Click the button then click a location on the map to have your unit
+    move towards that location. \n\nDefend - End your turn in your current location
+    and the next damage the unit takes will be blocked."
 --- !u!222 &1244082052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43974,12 +43967,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Move- Click the button then click a location on the map to have your unit
-    move towards that location. NOTE: You can only move at the very start of your
-    unit''s turn.
+    move towards that location.
 
 
-    Defend - End your turn in your current location and take
-    less damage until the unit''s next turn.'
+    Defend - End your turn in your current location
+    and the next damage the unit takes will be blocked.'
 --- !u!222 &1962442876
 CanvasRenderer:
   m_ObjectHideFlags: 0
