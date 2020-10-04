@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class enemyFSM : MonoBehaviour
 {
@@ -57,6 +58,11 @@ public class enemyFSM : MonoBehaviour
 
     // UI objects.
     private GameObject toggleUI;
+
+    // Healthbar objects.
+    public Image healthBar;
+    float hbLength;
+    float hbHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -345,7 +351,10 @@ public class enemyFSM : MonoBehaviour
         // Reciever for damage taken.
         
         currHealth -= damage;
-        
+
+        // Change appearance of healthbar to reflect damage taken
+        healthBar.rectTransform.sizeDelta = new Vector2(hbLength * (currHealth / 100.0f), hbHeight);
+
         // Death check.
         if (currHealth <= 0)
         {

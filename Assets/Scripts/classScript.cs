@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class classScript : MonoBehaviour
 {
@@ -55,6 +56,11 @@ public class classScript : MonoBehaviour
 
     //Holder for UI to be enabled/disabled
     public GameObject classUI;
+
+    //healthbar
+    public Image healthBar;
+    float hbLength;
+    float hbHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -355,6 +361,7 @@ public class classScript : MonoBehaviour
         //     nav.enabled = false;
         //     dead = true;
         // }
+        healthBar.rectTransform.sizeDelta = new Vector2(hbLength * (health / 100.0f), hbHeight);
     }
 
     private void OnDrawGizmos()
