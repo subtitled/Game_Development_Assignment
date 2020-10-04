@@ -49,6 +49,9 @@ public class enemyFSM : MonoBehaviour
     public GameObject[] patrolPoints;
     public int currentWaypoint;
     private Vector3 destination;
+    
+    private float moveTimer = 6f;
+    private float elapsedTime;
 
     // Connect to map control and characters.
     private GameObject mapControl;
@@ -189,9 +192,11 @@ public class enemyFSM : MonoBehaviour
         
         // Limits movement to within the movement range.
         moveDistance = moveDistance - (nav.speed * Time.deltaTime);
+        // Timer to prevents locks from unreachable targets.
+        elapsedTime += Time.deltaTime;
         
         // Checks to see if the movement range has been reached, or at the destination.
-        if (moveDistance <= 0.0f | Vector3.Distance(transform.position, destination) <= 1f)
+        if (moveDistance <= 0.0f | Vector3.Distance(transform.position, destination) <= 1f | elapsedTime >= moveTimer)
         {
             nav.isStopped = true;
             nav.enabled = false;
@@ -224,13 +229,14 @@ public class enemyFSM : MonoBehaviour
         if (move)
         {
             // Determines next waypoint if current way point has been reached.
-            if (Vector3.Distance(transform.position, destination) <= 1f)
+            if (Vector3.Distance(transform.position, destination) <= 1.25f | elapsedTime >= moveTimer)
             {
                 currentWaypoint = Random.Range(0, patrolPoints.Length);
                 destination = patrolPoints[currentWaypoint].gameObject.transform.position;
             }
             // DEBUG for state changes.
             //print(name + " moving.");
+            elapsedTime = 0f;
             currState = FSMstate.Moving;
         }
         
@@ -278,6 +284,7 @@ public class enemyFSM : MonoBehaviour
             
             // DEBUG for state changes.
             //print(name + " moving.");
+            elapsedTime = 0f;
             currState = FSMstate.Moving;
         }
         
@@ -326,16 +333,38 @@ public class enemyFSM : MonoBehaviour
             
             // DEBUG for state changes.
             //print(name + " moving.");
+            elapsedTime = 0f;
             currState = FSMstate.Moving;
         }
         
-        // DEBUG to skip turn.
-        //action = false;
+        if (!move)
+        {
+            // DEBUG to skip turn.
+            //action = false;
+            EngagedAction();
+        }
+        
+    }
+    
+    protected void UpdateDeadStatus()
+    {
+        // They're dead.
+        
+        if (active)
+        {
+            // Immediately ends its turn if activated.
+            active = false;
+            mapControl.SendMessage("ApplyActiveStatus", false);
+        }
+    }
+
+    void EngagedAction()
+    {
         /*
          * Action Logic
-         * Customised for individual enemy types, performing and action makes
-         * "action = false" to be within the chosen action function. 
+         * Switches for differing class types. 
          */
+        
         switch (enemyClassNum)
         {
             case 0: //enemyWarrior
@@ -418,7 +447,7 @@ public class enemyFSM : MonoBehaviour
                 // Determines order of players by health.
                 sortedPlayers.Sort(delegate(GameObject o, GameObject o1)
                 {
-                    return ((o.gameObject.GetComponent<classScript>().health).CompareTo(o1.gameObject.GetComponent<classScript>().health));
+                    return ((o.gameObject.GetComponent<classScript>().currHealth).CompareTo(o1.gameObject.GetComponent<classScript>().currHealth));
                 });
                 sortedPlayers.Reverse();
                 foreach (GameObject player in sortedPlayers)
@@ -471,21 +500,8 @@ public class enemyFSM : MonoBehaviour
                 action = false;
                 break;
         }
-        
-        
     }
     
-    protected void UpdateDeadStatus()
-    {
-        // They're dead.
-        
-        if (active)
-        {
-            // Immediately ends its turn if activated.
-            active = false;
-            mapControl.SendMessage("ApplyActiveStatus", false);
-        }
-    }
     
     void ApplyActiveStatus(bool message)
     {
@@ -504,7 +520,7 @@ public class enemyFSM : MonoBehaviour
         }
     }
 
-    void ApplyDamage(int damage)
+    void ApplyDamage(float damage)
     {
         // Reciever for damage taken.
         

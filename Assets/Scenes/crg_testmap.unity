@@ -846,10 +846,12 @@ MonoBehaviour:
   dead: 0
   action: 0
   move: 0
-  baseInitiative: 10
-  turnInitiative: 0
+  initiative: 0
   maxHealth: 0
+  currHealth: 0
   killXP: 0
+  enemyClassNum: 0
+  defendStatus: 0
   alertRange: 18
   engagedRange: 12
   movementRange: 6
@@ -867,6 +869,7 @@ MonoBehaviour:
   - {fileID: 1197001352}
   - {fileID: 691547779}
   currentWaypoint: 0
+  healthBar: {fileID: 0}
 --- !u!136 &116947165
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5009,7 +5012,8 @@ MonoBehaviour:
   strength: 0
   agility: 0
   intelligence: 0
-  health: 0
+  maxHealth: 0
+  currHealth: 0
   movement: 0
   initiative: 0
   classNum: 0
@@ -5018,8 +5022,10 @@ MonoBehaviour:
   active: 0
   action: 0
   move: 0
+  defendStatus: 0
   movementRange: 6
   classUI: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1001 &861692721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7352,10 +7358,12 @@ MonoBehaviour:
   dead: 0
   action: 0
   move: 0
-  baseInitiative: 10
-  turnInitiative: 0
+  initiative: 0
   maxHealth: 0
+  currHealth: 0
   killXP: 0
+  enemyClassNum: 0
+  defendStatus: 0
   alertRange: 18
   engagedRange: 12
   movementRange: 6
@@ -7373,6 +7381,7 @@ MonoBehaviour:
   - {fileID: 1197001352}
   - {fileID: 691547779}
   currentWaypoint: 0
+  healthBar: {fileID: 0}
 --- !u!136 &1341406732
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9889,10 +9898,12 @@ MonoBehaviour:
   dead: 0
   action: 0
   move: 0
-  baseInitiative: 10
-  turnInitiative: 0
+  initiative: 0
   maxHealth: 0
+  currHealth: 0
   killXP: 0
+  enemyClassNum: 0
+  defendStatus: 0
   alertRange: 18
   engagedRange: 12
   movementRange: 6
@@ -9910,6 +9921,7 @@ MonoBehaviour:
   - {fileID: 1197001352}
   - {fileID: 691547779}
   currentWaypoint: 0
+  healthBar: {fileID: 0}
 --- !u!136 &1710031466
 CapsuleCollider:
   m_ObjectHideFlags: 0
