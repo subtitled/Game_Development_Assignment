@@ -93,6 +93,7 @@ public class enemyFSM : MonoBehaviour
         alertRange = GetComponent<enemyClassScript>().alertRange;
         engagedRange = GetComponent<enemyClassScript>().engagedRange;
         movementRange = GetComponent<enemyClassScript>().movement;
+        killXP = 40;
         
         // Retrieve Player characters, build a sortable list.
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");
