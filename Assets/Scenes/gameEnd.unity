@@ -424,7 +424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &432067638
 RectTransform:
   m_ObjectHideFlags: 0
@@ -749,13 +749,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6062c4f719a1383429b6ef29c933e60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exp1: 0
+  exp2: 0
+  exp3: 0
+  exp4: 0
+  exp5: 0
+  total: 0
   u1Num: {fileID: 2032442498}
   u2Num: {fileID: 1167127386}
   u3Num: {fileID: 791786614}
   u4Num: {fileID: 2005325234}
   u5Num: {fileID: 70785663}
   tSNum: {fileID: 544748313}
-  duration: 0.5
+  winOrLoss: 0
+  winLoss:
+  - {fileID: 1265455297}
+  - {fileID: 432067637}
 --- !u!4 &837898588
 Transform:
   m_ObjectHideFlags: 0
@@ -1329,7 +1338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1265455298
 RectTransform:
   m_ObjectHideFlags: 0
