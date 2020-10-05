@@ -286,6 +286,11 @@ public class classScript : MonoBehaviour
             classUI.SetActive(active);
         }
         
+        if (transform.position.y < 5f)
+        {
+            transform.position = transform.position + new Vector3(0f, 10f, 0f);
+        }
+        
     }
     
     protected void UpdateWaitStatus()
