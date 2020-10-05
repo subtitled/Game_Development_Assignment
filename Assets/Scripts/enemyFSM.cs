@@ -66,8 +66,11 @@ public class enemyFSM : MonoBehaviour
 
     // Healthbar objects.
     public Image healthBar;
+    public Image teamHealthBar;
     float hbLength;
     float hbHeight;
+    float thbLength;
+    float thbHeight;
 
     // Start is called before the first frame update
     // Start is called before the first frame update
@@ -118,6 +121,8 @@ public class enemyFSM : MonoBehaviour
         // Initiate healbar variables
         hbLength = healthBar.rectTransform.rect.width;
         hbHeight = healthBar.rectTransform.rect.height;
+        thbLength = teamHealthBar.rectTransform.rect.width;
+        thbHeight = teamHealthBar.rectTransform.rect.height;
     }
 
     // Update is called once per frame
@@ -558,6 +563,7 @@ public class enemyFSM : MonoBehaviour
 
         // Change appearance of healthbar to reflect damage taken
         healthBar.rectTransform.sizeDelta = new Vector2(hbLength * (currHealth / 100.0f), hbHeight);
+        teamHealthBar.rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
 
         // Death check.
         if (currHealth <= 0)

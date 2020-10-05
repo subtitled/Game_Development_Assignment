@@ -78,8 +78,11 @@ public class classScript : MonoBehaviour
 
     //healthbar
     public Image healthBar;
+    public Image[] teamHealthBars;
     float hbLength;
     float hbHeight;
+    float thbLength;
+    float thbHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -99,22 +102,32 @@ public class classScript : MonoBehaviour
             case 0:
                 wep_1 = PlayerPrefs.GetInt("U1W1");
                 abil_1 = PlayerPrefs.GetInt("U1A1");
+                thbLength = teamHealthBars[0].rectTransform.rect.width;
+                thbHeight = teamHealthBars[0].rectTransform.rect.height;
                 break;
             case 1:
                 wep_1 = PlayerPrefs.GetInt("U2W1");
                 abil_1 = PlayerPrefs.GetInt("U2A1");
+                thbLength = teamHealthBars[1].rectTransform.rect.width;
+                thbHeight = teamHealthBars[1].rectTransform.rect.height;
                 break;
             case 2:
                 wep_1 = PlayerPrefs.GetInt("U3W1");
                 abil_1 = PlayerPrefs.GetInt("U3A1");
+                thbLength = teamHealthBars[2].rectTransform.rect.width;
+                thbHeight = teamHealthBars[2].rectTransform.rect.height;
                 break;
             case 3:
                 wep_1 = PlayerPrefs.GetInt("U4W1");
                 abil_1 = PlayerPrefs.GetInt("U4A1");
+                thbLength = teamHealthBars[3].rectTransform.rect.width;
+                thbHeight = teamHealthBars[3].rectTransform.rect.height;
                 break;
             case 4:
                 wep_1 = PlayerPrefs.GetInt("U5W1");
                 abil_1 = PlayerPrefs.GetInt("U5A1");
+                thbLength = teamHealthBars[4].rectTransform.rect.width;
+                thbHeight = teamHealthBars[4].rectTransform.rect.height;
                 break;
         }
 
@@ -623,7 +636,24 @@ public class classScript : MonoBehaviour
             }
         }
         healthBar.rectTransform.sizeDelta = new Vector2(hbLength * (currHealth / 100.0f), hbHeight);
-        
+        switch (unitNum)
+        {
+            case 0:
+                teamHealthBars[0].rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
+                break;
+            case 1:
+                teamHealthBars[1].rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
+                break;
+            case 2:
+                teamHealthBars[2].rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
+                break;
+            case 3:
+                teamHealthBars[3].rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
+                break;
+            case 4:
+                teamHealthBars[4].rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
+                break;
+        }
         // Death check.
         if (currHealth <= 0)
         {

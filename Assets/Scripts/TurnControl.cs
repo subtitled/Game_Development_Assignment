@@ -58,7 +58,7 @@ public class TurnControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        turnsText.text = "Turns: " + turnCount;
+        turnsText.text = "Turn: " + 1;
         spawnPoints = GameObject.Find("spawnPoints");
         spawnPoints.GetComponent<spawning>().PlayerSpawn();
         enemySpawns = GameObject.Find("enemySpawns");
@@ -221,7 +221,7 @@ public class TurnControl : MonoBehaviour
         // Increments or resets values.
         characterOrder = 0;
         turnCount += 1;
-        turnsText.text = "Turns: " + turnCount;
+        turnsText.text = "Turn: " + turnCount;
         currState = FSMturn.Wait;
         // DEBUG for turn end.
         //print("Start Turn " + turnCount);
