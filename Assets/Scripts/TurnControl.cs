@@ -319,5 +319,10 @@ public class TurnControl : MonoBehaviour
             currState = FSMturn.Victory;
         }
     }
+
+    public void ApplyDefeatState()
+    {
+        currState = FSMturn.Defeat;
+    }
     
 }

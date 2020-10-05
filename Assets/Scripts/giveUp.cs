@@ -17,6 +17,6 @@ public class giveUp : MonoBehaviour
     public void giveUpNow()
     {
         giveUpBox.gameObject.SetActive(false);
-        turnControls.GetComponent<TurnControl>().UpdateDefeatState();
+        turnControls.GetComponent<TurnControl>().ApplyDefeatState();
     }
 }

@@ -28319,7 +28319,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1194287392}
-        m_MethodName: boxOpen
+        m_MethodName: giveUpNow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -47901,6 +47901,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 7491004160058216}
+    - target: {fileID: 2612437203629554577, guid: b8e247c71c3abb34787299635347989c,
+        type: 3}
+      propertyPath: mousePointer
+      value: 
+      objectReference: {fileID: 205963814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8e247c71c3abb34787299635347989c, type: 3}
 --- !u!114 &7491004160058216 stripped
@@ -48393,6 +48398,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 3994550738641109091}
+    - target: {fileID: 4211403131232757958, guid: 5056126ce7df93748939749992a0febb,
+        type: 3}
+      propertyPath: mousePointer
+      value: 
+      objectReference: {fileID: 205963814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5056126ce7df93748939749992a0febb, type: 3}
 --- !u!114 &3994550738641109091 stripped
@@ -48576,6 +48586,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 4483539505371243252}
+    - target: {fileID: 947245761689072954, guid: e95d558b3d562134e959d72a0b8a4fb5,
+        type: 3}
+      propertyPath: mousePointer
+      value: 
+      objectReference: {fileID: 205963814}
     - target: {fileID: 3758222389671397268, guid: e95d558b3d562134e959d72a0b8a4fb5,
         type: 3}
       propertyPath: m_Name
@@ -48819,6 +48834,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 4953737389113034802}
+    - target: {fileID: 2037681464, guid: 08ad3e9f29759db4d941c044aeaaf611, type: 3}
+      propertyPath: mousePointer
+      value: 
+      objectReference: {fileID: 205963814}
     - target: {fileID: 6989032618902263089, guid: 08ad3e9f29759db4d941c044aeaaf611,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49234,6 +49253,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 6322963380864645100}
+    - target: {fileID: 520749827255721081, guid: 84bc0aa6fe56a504d8d52c0b58e3ac40,
+        type: 3}
+      propertyPath: mousePointer
+      value: 
+      objectReference: {fileID: 205963814}
     - target: {fileID: 4868332793785625909, guid: 84bc0aa6fe56a504d8d52c0b58e3ac40,
         type: 3}
       propertyPath: m_Name

@@ -50,7 +50,7 @@ public class classScript : MonoBehaviour
     public bool active;
     public bool action;
     public bool move;
-    public bool defendStatus;
+    public bool defendStatus = false;
 
     private float elapsedTime;
     private float moveTimer = 6f;
@@ -66,8 +66,10 @@ public class classScript : MonoBehaviour
     public GameObject classUI;
     
     // Mouse targeting.
+    private Ray myRay;
+    private RaycastHit hit;
     public GameObject mousePointer;
-    float validRange = 1f;
+    float validRange;
     bool validTarget;
 
     //healthbar
@@ -81,7 +83,7 @@ public class classScript : MonoBehaviour
         // Connect to map control and components.
         mapControl = GameObject.Find("MapControl");
         nav = GetComponent<NavMeshAgent>();
-        mousePointer = GameObject.Find("MousePointer");
+        mousePointer.SetActive(false);
        
         // Initiate healbar variables
         hbLength = healthBar.rectTransform.rect.width;
@@ -352,15 +354,15 @@ public class classScript : MonoBehaviour
 
     protected void UpdateMoveTarget()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+        myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(myRay, out hit))
         {
             mousePointer.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
             mousePointer.GetComponent<Renderer>().material.color = Color.green;
             mousePointer.transform.position = hit.point;
             mousePointer.SetActive(true);
             
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetButtonDown("Fire1"))
             {
                 destination = hit.point;
                 mousePointer.SetActive(false);
@@ -372,7 +374,6 @@ public class classScript : MonoBehaviour
     
     protected void UpdateAttackTarget()
     {
-        RaycastHit hit;
         switch (classNum)
         {
             case 0: validRange = 1.25f; break;
@@ -410,7 +411,6 @@ public class classScript : MonoBehaviour
     
     protected void UpdateAbilityTarget()
     {
-        RaycastHit hit;
         switch (classNum)
         {
             case 0: WarriorAbility1();
@@ -565,6 +565,7 @@ public class classScript : MonoBehaviour
             active = true;
             action = true;
             move = true;
+            defendStatus = false;
             moveDistance = movementRange;
             // DEBUG for activation.
             //print(name + " activated");
