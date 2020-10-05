@@ -32,7 +32,7 @@ public class TurnControl : MonoBehaviour
     private int turnCount = 0;
     private bool activated;
     private int characterOrder = 0;
-    private GameObject activeCharacter;
+    public GameObject activeCharacter;
     
     // Death tally.
     private int playersSlain = 0;
@@ -192,6 +192,7 @@ public class TurnControl : MonoBehaviour
                 activeCharacter = initiativeOrder[characterOrder];
                 characterOrder += 1;
                 currState = FSMturn.Wait;
+                
                 //code to show UI when unit's turn
                 // if (activeCharacter.CompareTag("Player"))
                 // {
@@ -324,5 +325,6 @@ public class TurnControl : MonoBehaviour
     {
         currState = FSMturn.Defeat;
     }
+    
     
 }

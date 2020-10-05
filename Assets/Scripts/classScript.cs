@@ -64,6 +64,10 @@ public class classScript : MonoBehaviour
 
     //Holder for UI to be enabled/disabled
     public GameObject classUI;
+    public Button moveButton;
+    public Button defendButton;
+    public Button attackButton;
+    public Button abilityButton;
     
     // Mouse targeting.
     private Ray myRay;
@@ -122,7 +126,7 @@ public class classScript : MonoBehaviour
                 agility = Random.Range(5, 7);
                 intelligence = Random.Range(2, 5);
                 maxHealth = Random.Range(110, 130);
-                movement = 3;
+                movement = 6;
                 initiative = Random.Range(1, 11) + agility;
                 switch (wep_1)
                 {
@@ -148,7 +152,7 @@ public class classScript : MonoBehaviour
                 agility = Random.Range(5, 7);
                 intelligence = Random.Range(6, 8);
                 maxHealth = Random.Range(100, 120);
-                movement = 3;
+                movement = 5;
                 initiative = Random.Range(1, 11) + agility;
                 switch (wep_1)
                 {
@@ -174,7 +178,7 @@ public class classScript : MonoBehaviour
                 agility = Random.Range(6, 8);
                 intelligence = Random.Range(7, 9);
                 maxHealth = Random.Range(90, 110);
-                movement = 3;
+                movement = 5;
                 initiative = Random.Range(1, 11) + agility;
                 switch (wep_1)
                 {
@@ -200,7 +204,7 @@ public class classScript : MonoBehaviour
                 agility = Random.Range(7, 9);
                 intelligence = Random.Range(5, 6);
                 maxHealth = Random.Range(100, 110);
-                movement = 3;
+                movement = 6;
                 initiative = Random.Range(1, 11) + agility;
                 switch (wep_1)
                 {
@@ -226,7 +230,7 @@ public class classScript : MonoBehaviour
                 agility = Random.Range(6, 8);
                 intelligence = Random.Range(2, 5);
                 maxHealth = Random.Range(90, 110);
-                movement = 3;
+                movement = 4;
                 initiative = Random.Range(1, 11) + agility;
                 switch (wep_1)
                 {
@@ -250,6 +254,12 @@ public class classScript : MonoBehaviour
         }
         
         currHealth = maxHealth;
+        
+        // Connect UI buttons to the script functions.
+        moveButton.onClick.AddListener(ApplyMoveTargeting);
+        defendButton.onClick.AddListener(Defend);
+        attackButton.onClick.AddListener(ApplyAttackTargeting);
+        abilityButton.onClick.AddListener(ApplyAbilityTargeting);
 
         // Setting to wait states.
         classUI.SetActive(active);
@@ -303,6 +313,8 @@ public class classScript : MonoBehaviour
         // active = false;
         // mapControl.SendMessage("ApplyActiveStatus", false);
         // currState = FSMstate.Wait;
+        
+       
         
             
         if (move == false & action == false)
@@ -364,11 +376,13 @@ public class classScript : MonoBehaviour
             
             if (Input.GetButtonDown("Fire1"))
             {
-                destination = hit.point;
+                destination = hit.point + new Vector3(0f,0.2f,0f);
                 mousePointer.SetActive(false);
                 currState = FSMstate.Moving;
             }
         }
+        
+        
         
     }
     
@@ -482,6 +496,11 @@ public class classScript : MonoBehaviour
         // Blocks the first hit until the next turn.
         defendStatus = true;
         action = false;
+        if (mousePointer)
+        {
+            mousePointer.SetActive(false);
+        }
+        currState = FSMstate.Active;
     }
     
     public void WarriorAbility1()
@@ -616,7 +635,7 @@ public class classScript : MonoBehaviour
             currState = FSMstate.Dead;
         }
     }
-
+    
     public void ApplyMoveTargeting()
     {
         if (move)
@@ -624,7 +643,7 @@ public class classScript : MonoBehaviour
             currState = FSMstate.MoveTarget;
         }
     }
-
+    
     public void ApplyAttackTargeting()
     {
         if (action)
@@ -632,7 +651,7 @@ public class classScript : MonoBehaviour
             currState = FSMstate.AttackTarget;
         }
     }
-
+    
     public void ApplyAbilityTargeting()
     {
         if (action)
