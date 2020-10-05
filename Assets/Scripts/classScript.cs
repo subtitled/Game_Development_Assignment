@@ -151,7 +151,7 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                     case 1:
-                        w1dmg = 30;
+                        w1dmg = 4 * strength;
                         break;
                 }
                 switch (abil_1)
@@ -177,7 +177,7 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                     case 1:
-                        w1dmg = 30;
+                        w1dmg = 4 * intelligence;
                         break;
                 }
                 switch (abil_1)
@@ -203,7 +203,7 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                     case 1:
-                        w1dmg = 30;
+                        w1dmg = 4 * intelligence;
                         break;
                 }
                 switch (abil_1)
@@ -229,7 +229,7 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                     case 1:
-                        w1dmg = 30;
+                        w1dmg = 4 * agility;
                         break;
                 }
                 switch (abil_1)
@@ -255,7 +255,7 @@ public class classScript : MonoBehaviour
                         w1dmg = 30;
                         break;
                     case 1:
-                        w1dmg = 30;
+                        w1dmg = 4 * agility;
                         break;
                 }
                 switch (abil_1)
