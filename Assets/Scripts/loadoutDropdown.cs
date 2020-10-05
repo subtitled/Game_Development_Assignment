@@ -16,27 +16,27 @@ public class loadoutDropdown : MonoBehaviour
     List<string> war_wep1 = new List<string> { "Sword", "Warhammer" };
     List<string> war_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your strength stat." };
     List<string> war_ab1 = new List<string> { "Cleave", "Stun" };
-    List<string> war_ab1_desc = new List<string> { "Deal damage in an area around the Warrior.", "Deal a small amount of damage but target skips next turn. " };
+    List<string> war_ab1_desc = new List<string> { "Deal damage in an area around the Warrior.", "NOT YET IMPLEMENTED DO NOT PICK Deal a small amount of damage but target skips next turn. " };
     //Priest weapons/abilities/descriptions
     List<string> pri_wep1 = new List<string> { "Mace", "Morning Star" };
     List<string> pri_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your intelligence stat." };
     List<string> pri_ab1 = new List<string> { "Heal", "Buff" };
-    List<string> pri_ab1_desc = new List<string> { "Increase a units health by an amount. Health can not go above the maximum for that unit.", "Increases a unit's base stat by 1 for 2 turns." };
+    List<string> pri_ab1_desc = new List<string> { "Increase a units health by an amount. Health can not go above the maximum for that unit.", "NOT YET IMPLEMENTED DO NOT PICK Increases a unit's base stat by 1 for 2 turns." };
     //Mage weapons/abilities/descriptions
     List<string> mag_wep1 = new List<string> { "Staff", "Wand" };
     List<string> mag_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your intelligence stat." };
     List<string> mag_ab1 = new List<string> { "Fireball", "Magic Missile" };
-    List<string> mag_ab1_desc = new List<string> { "Does some damage.", "Shoots out 3 attacks that deal a small amount of damage* intelligence." };
+    List<string> mag_ab1_desc = new List<string> { "Does some damage in a targeted area.", "NOT YET IMPLEMENTED DO NOT PICK Shoots out 3 attacks that deal a small amount of damage* intelligence." };
     //Rogue weapons/abilites/descriptions
     List<string> rog_wep1 = new List<string> { "Dagger", "Dual Daggers" };
     List<string> rog_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your agility stat." };
     List<string> rog_ab1 = new List<string> { "Stab", "Slice" };
-    List<string> rog_ab1_desc = new List<string> { "Does more damage than a regular attack but in a smaller area.", "Does a small amount of damage * agility in an area in front of the unit." };
+    List<string> rog_ab1_desc = new List<string> { "Does more damage than a regular attack but in a smaller area.", "NOT YET IMPLEMENTED DO NOT PICK Does a small amount of damage * agility in an area in front of the unit." };
     //Marksman weapons/abilities/descriptions
     List<string> mar_wep1 = new List<string> { "Crossbow", "Long Bow" };
     List<string> mar_wep1_desc = new List<string> { "Flat damage attack.", "Less flat damage but it's multiplied by your agility stat." };
     List<string> mar_ab1 = new List<string> { "Snipe", "Rapid Shot" };
-    List<string> mar_ab1_desc = new List<string> { "Long range attack that does more damage the further the unit is away from the target.", "Shoots out 3 attacks that deal a small amount of damage* agility." };
+    List<string> mar_ab1_desc = new List<string> { "Long range attack that does more damage the further the unit is away from the target.", "NOT YET IMPLEMENTED DO NOT PICK Shoots out 3 attacks that deal a small amount of damage* agility." };
 
     //storing weapon description boxes
     public Text[] wepDesc;
