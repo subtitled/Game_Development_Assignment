@@ -408,9 +408,11 @@ MonoBehaviour:
   - {fileID: 1457730022}
   - {fileID: 1615774651}
   model: {fileID: 6989032618902544565}
+  unitTexts: []
   classNum: 0
   wep1: 0
   abil1: 0
+  unitNum: 0
 --- !u!1 &1164308434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0cbcb069bf74d488aa8f5d8d5f251f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currState: 2
   wep_1: 0
   abil_1: 0
   w1dmg: 0
@@ -1162,7 +1165,8 @@ MonoBehaviour:
   strength: 0
   agility: 0
   intelligence: 0
-  health: 0
+  maxHealth: 0
+  currHealth: 0
   movement: 3
   initiative: 0
   classNum: 0
@@ -1171,6 +1175,17 @@ MonoBehaviour:
   active: 0
   action: 0
   move: 0
+  defendStatus: 1
+  movementRange: 6
+  classUI: {fileID: 0}
+  moveButton: {fileID: 0}
+  defendButton: {fileID: 0}
+  attackButton: {fileID: 0}
+  abilityButton: {fileID: 0}
+  mousePointer: {fileID: 0}
+  healthBar: {fileID: 0}
+  teamHealthBars: []
+  explosion: {fileID: 100010, guid: e0609132424a24844b1d53ad3d704fd9, type: 3}
 --- !u!195 &8200663549898758963
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -52,6 +52,7 @@ public class classScript : MonoBehaviour
     public bool move;
     public bool defendStatus = false;
 
+    // Movement timers to prevent being hooked on an unreachable target.
     private float elapsedTime;
     private float moveTimer = 6f;
     
@@ -83,6 +84,9 @@ public class classScript : MonoBehaviour
     float hbHeight;
     float thbLength;
     float thbHeight;
+    
+    // Death explosion
+    public GameObject explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -603,7 +607,7 @@ public class classScript : MonoBehaviour
             action = true;
             move = true;
             defendStatus = false;
-            moveDistance = movementRange;
+            moveDistance = movement;
             // DEBUG for activation.
             //print(name + " activated");
         }
@@ -635,6 +639,7 @@ public class classScript : MonoBehaviour
                 }
             }
         }
+        
         healthBar.rectTransform.sizeDelta = new Vector2(hbLength * (currHealth / 100.0f), hbHeight);
         switch (unitNum)
         {
@@ -654,19 +659,25 @@ public class classScript : MonoBehaviour
                 teamHealthBars[4].rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
                 break;
         }
+        
         // Death check.
-        if (currHealth <= 0)
+        if (currHealth <= 0 & !dead)
         {
             /*
              * DEATH EFFECTS
              * UI, Visual, Transformative.
             */
+            if (explosion)
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+            }
             
             // Disables character functions.
             mapControl.SendMessage("ApplyPlayerSlain");
             nav.isStopped = true;
             nav.enabled = false;
             dead = true;
+            transform.localScale = new Vector3(0,0,0);
             currState = FSMstate.Dead;
         }
     }

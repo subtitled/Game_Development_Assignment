@@ -52823,6 +52823,11 @@ PrefabInstance:
       propertyPath: teamHealthBars.Array.data[4]
       value: 
       objectReference: {fileID: 1112014862}
+    - target: {fileID: 4211403131232757958, guid: 5056126ce7df93748939749992a0febb,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 100010, guid: e0609132424a24844b1d53ad3d704fd9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5056126ce7df93748939749992a0febb, type: 3}
 --- !u!114 &3994550738641109089 stripped

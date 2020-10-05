@@ -133,9 +133,11 @@ MonoBehaviour:
   - {fileID: 1306089997}
   - {fileID: 1539956805}
   model: {fileID: 3758222389671397268}
+  unitTexts: []
   classNum: 0
   wep1: 0
   abil1: 0
+  unitNum: 0
 --- !u!1 &588647198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,34 +1145,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &947245761689072954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3758222389671397268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc0cbcb069bf74d488aa8f5d8d5f251f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wep_1: 0
-  abil_1: 0
-  w1dmg: 0
-  a1dmg: 0
-  strength: 0
-  agility: 0
-  intelligence: 0
-  health: 0
-  movement: 3
-  initiative: 0
-  classNum: 4
-  unitNum: 0
-  dead: 0
-  active: 0
-  action: 0
-  move: 0
 --- !u!195 &256816099889487070
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1193,6 +1167,47 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &947245761689072954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758222389671397268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0cbcb069bf74d488aa8f5d8d5f251f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 2
+  wep_1: 0
+  abil_1: 0
+  w1dmg: 0
+  a1dmg: 0
+  strength: 0
+  agility: 0
+  intelligence: 0
+  maxHealth: 0
+  currHealth: 0
+  movement: 3
+  initiative: 0
+  classNum: 4
+  unitNum: 0
+  dead: 0
+  active: 0
+  action: 0
+  move: 0
+  defendStatus: 1
+  movementRange: 6
+  classUI: {fileID: 0}
+  moveButton: {fileID: 0}
+  defendButton: {fileID: 0}
+  attackButton: {fileID: 0}
+  abilityButton: {fileID: 0}
+  mousePointer: {fileID: 0}
+  healthBar: {fileID: 0}
+  teamHealthBars: []
+  explosion: {fileID: 100010, guid: e0609132424a24844b1d53ad3d704fd9, type: 3}
 --- !u!1001 &3758222389671546506
 PrefabInstance:
   m_ObjectHideFlags: 0

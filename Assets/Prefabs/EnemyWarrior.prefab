@@ -2341,9 +2341,12 @@ MonoBehaviour:
   intelligence: 0
   health: 0
   movement: 0
+  alertRange: 0
+  engagedRange: 0
   initiative: 0
   enemyClassNum: 0
   unitNum: 0
+  enemyUI: {fileID: 0}
 --- !u!195 &3207302510624178493
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2382,15 +2385,20 @@ MonoBehaviour:
   dead: 0
   action: 0
   move: 0
-  baseInitiative: 10
-  turnInitiative: 0
+  initiative: 0
   maxHealth: 0
+  currHealth: 0
   killXP: 0
+  enemyClassNum: 0
+  defendStatus: 0
   alertRange: 18
   engagedRange: 12
   movementRange: 6
   patrolPoints: []
   currentWaypoint: 0
+  healthBar: {fileID: 0}
+  teamHealthBar: {fileID: 0}
+  explosion: {fileID: 100010, guid: e0609132424a24844b1d53ad3d704fd9, type: 3}
 --- !u!1 &7267876788480667120
 GameObject:
   m_ObjectHideFlags: 0

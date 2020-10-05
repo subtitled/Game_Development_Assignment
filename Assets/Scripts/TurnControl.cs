@@ -37,6 +37,8 @@ public class TurnControl : MonoBehaviour
     // Death tally.
     private int playersSlain = 0;
     private int enemiesSlain = 0;
+    private int pTeamSize;
+    private int eTeamSize;
     
     // Experience Point collectors.
     public int victoryBonus = 150;
@@ -67,8 +69,11 @@ public class TurnControl : MonoBehaviour
         // Imports player and enemy characters.
         enemyCharacters = GameObject.FindGameObjectsWithTag("Enemy");
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");
-        
-       
+
+        pTeamSize = playerCharacters.Length;
+        eTeamSize = enemyCharacters.Length;
+
+
         if (enemyCharacters.Length > 0)
         {
             foreach (GameObject character in enemyCharacters)
@@ -193,15 +198,6 @@ public class TurnControl : MonoBehaviour
                 characterOrder += 1;
                 currState = FSMturn.Wait;
                 
-                //code to show UI when unit's turn
-                // if (activeCharacter.CompareTag("Player"))
-                // {
-                //     activeCharacter.GetComponent<classScript>().classUI.gameObject.SetActive(true);
-                // }
-                // else if (activeCharacter.CompareTag("Enemy"))
-                // {
-                //     activeCharacter.GetComponent<enemyClassScript>().enemyUI.gameObject.SetActive(true);
-                // }
             }
             
         }
@@ -304,7 +300,7 @@ public class TurnControl : MonoBehaviour
     {
         // Reciever to count players slain and check defeat condition.
         playersSlain += 1;
-        if (playersSlain >= playerCharacters.Length)
+        if (playersSlain >= pTeamSize)
         {
             currState = FSMturn.Defeat;
         }
@@ -315,7 +311,7 @@ public class TurnControl : MonoBehaviour
     {
         // Reciever to count enemies slain and check victory condition.
         enemiesSlain += 1;
-        if (enemiesSlain >= enemyCharacters.Length)
+        if (enemiesSlain >= eTeamSize)
         {
             currState = FSMturn.Victory;
         }

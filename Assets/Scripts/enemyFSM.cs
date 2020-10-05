@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -71,6 +72,9 @@ public class enemyFSM : MonoBehaviour
     float hbHeight;
     float thbLength;
     float thbHeight;
+    
+    // Death explosion
+    public GameObject explosion;
 
     // Start is called before the first frame update
     // Start is called before the first frame update
@@ -566,12 +570,16 @@ public class enemyFSM : MonoBehaviour
         teamHealthBar.rectTransform.sizeDelta = new Vector2(thbLength * (currHealth / 100.0f), thbHeight);
 
         // Death check.
-        if (currHealth <= 0)
+        if (currHealth <= 0 & !dead)
         {
             /*
              * DEATH EFFECTS
              * UI, Visual, Transformative.
             */
+            if (explosion)
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+            }
             
             // Disables character functions.
             mapControl.SendMessage("ApplyXP", killXP);
@@ -579,6 +587,7 @@ public class enemyFSM : MonoBehaviour
             nav.isStopped = true;
             nav.enabled = false;
             dead = true;
+            transform.localScale = new Vector3(0,0,0);
             currState = FSMstate.Dead;
         }
     }
