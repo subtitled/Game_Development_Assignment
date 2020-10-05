@@ -24,8 +24,7 @@ public class classScript : MonoBehaviour
     // FSM switch.
     public FSMstate currState;
 
-    //TODO: TAKE VALUE FROM ABILITY SELECTION SET ints TO VALUE FOR SWITCH STATEMENTS
-    //Setup for switch statements (might change later)
+    //Setup for switch statements
     public int wep_1;
     public int abil_1;
 
@@ -33,7 +32,7 @@ public class classScript : MonoBehaviour
     public int w1dmg;
     public int a1dmg;
 
-    //Stat setup (might change later)
+    //Stat setup
     public int strength;
     public int agility;
     public int intelligence;
@@ -60,11 +59,12 @@ public class classScript : MonoBehaviour
     private GameObject mapControl;
     private NavMeshAgent nav;
     private Vector3 destination;
-    public float movementRange = 6.0f;
     private float moveDistance;
 
     //Holder for UI to be enabled/disabled
     public GameObject classUI;
+    
+    // Connects to UI buttons.
     public Button moveButton;
     public Button defendButton;
     public Button attackButton;
@@ -328,17 +328,13 @@ public class classScript : MonoBehaviour
 
     protected void UpdateActiveStatus()
     {
-        
-        
-        
+        // Character UI is activated, and awaits for input.
+
         // // DEBUG skip player.
         // active = false;
         // mapControl.SendMessage("ApplyActiveStatus", false);
         // currState = FSMstate.Wait;
-        
-       
-        
-            
+
         if (move == false & action == false)
         {
             active = false;
@@ -353,6 +349,7 @@ public class classScript : MonoBehaviour
         // Dedicated Moving State, so the player cannot also make an action at the same time.
         
         // Enable NavMesh interactions to set destination.
+        move = false;
         nav.enabled = true;
         nav.isStopped = false;
         nav.SetDestination(destination);
@@ -368,7 +365,6 @@ public class classScript : MonoBehaviour
             elapsedTime = 0f;
             nav.isStopped = true;
             nav.enabled = false;
-            move = false;
             currState = FSMstate.Active;
             // Return to active state for input.
         }
@@ -388,9 +384,11 @@ public class classScript : MonoBehaviour
 
     protected void UpdateMoveTarget()
     {
+        // State that enables the obtaining destination input for moving.
         myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(myRay, out hit))
         {
+            // Generates a green mouse target.
             mousePointer.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
             mousePointer.GetComponent<Renderer>().material.color = Color.green;
             mousePointer.transform.position = hit.point;
@@ -403,15 +401,14 @@ public class classScript : MonoBehaviour
                 currState = FSMstate.Moving;
             }
         }
-        
-        
-        
     }
     
     protected void UpdateAttackTarget()
     {
+        // State that enables targeting and performing the characters attacks.
         switch (classNum)
         {
+            // Constrains attack range of player characters.
             case 0: validRange = 1.25f; break;
             case 1: validRange = 1.25f; break;
             case 2: validRange = 6f; break;
@@ -421,6 +418,7 @@ public class classScript : MonoBehaviour
         
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
         {
+            // Determines if target is within range, green target if so, red if not.
             if (Vector3.Distance(transform.position, hit.point) <= validRange)
             {
                 mousePointer.GetComponent<Renderer>().material.color = Color.green;
@@ -447,8 +445,10 @@ public class classScript : MonoBehaviour
     
     protected void UpdateAbilityTarget()
     {
+        // State for targeting the players abilities.
         switch (classNum)
         {
+            // Constrains target range. automatically enacts warriors ability.
             case 0: WarriorAbility1();
                 currState = FSMstate.Active;
                 validRange = 0f; break;
@@ -460,6 +460,7 @@ public class classScript : MonoBehaviour
         
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
         {
+            // Determines if target is within range, green target if so, red if not.
             mousePointer.transform.position = hit.point;
             if (Vector3.Distance(transform.position, hit.point) <= validRange)
             {
@@ -473,6 +474,7 @@ public class classScript : MonoBehaviour
             }
             switch (classNum)
             {
+                // Adjusts target size for different class abilities. 
                 case 0: break;
                 case 1: mousePointer.transform.localScale = new Vector3 (4f, 4f, 4f); break;
                 case 2: mousePointer.transform.localScale = new Vector3 (4f, 4f, 4f); break;
@@ -485,6 +487,7 @@ public class classScript : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(0) & validTarget)
             {
+                // If the target is within range, performs the class ability.
                 switch (classNum)
                 {
                     case 0: break;
@@ -515,6 +518,7 @@ public class classScript : MonoBehaviour
 
     public void Defend()
     {
+        // Button function when clicked.
         // Blocks the first hit until the next turn.
         defendStatus = true;
         action = false;
@@ -684,6 +688,7 @@ public class classScript : MonoBehaviour
     
     public void ApplyMoveTargeting()
     {
+        // Button function when clicked, enables movement.
         if (move)
         {
             currState = FSMstate.MoveTarget;
@@ -692,6 +697,7 @@ public class classScript : MonoBehaviour
     
     public void ApplyAttackTargeting()
     {
+        // Button function when clicked, enables attacks.
         if (action)
         {
             currState = FSMstate.AttackTarget;
@@ -700,6 +706,7 @@ public class classScript : MonoBehaviour
     
     public void ApplyAbilityTargeting()
     {
+        // Button function when clicked, enables abilities.
         if (action)
         {
             currState = FSMstate.AbilityTarget;

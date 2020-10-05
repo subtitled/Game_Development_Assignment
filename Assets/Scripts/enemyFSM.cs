@@ -77,7 +77,6 @@ public class enemyFSM : MonoBehaviour
     public GameObject explosion;
 
     // Start is called before the first frame update
-    // Start is called before the first frame update
     void Start()
     {
         // Initiate variables and connect to components.
@@ -148,6 +147,7 @@ public class enemyFSM : MonoBehaviour
             toggleUI.SetActive(active);
         }
 
+        // Quick fix for occasional fall through floor issues.
         if (transform.position.y < 5f)
         {
             transform.position = transform.position + new Vector3(0f, 10f, 0f);
@@ -378,10 +378,8 @@ public class enemyFSM : MonoBehaviour
 
     void EngagedAction()
     {
-        /*
-         * Action Logic
-         * Switches for differing class types. 
-         */
+         // Action Logic
+         // Switches for differing class types. 
         
         switch (enemyClassNum)
         {

@@ -8,7 +8,7 @@ public class enemyClassScript : MonoBehaviour
     public float w1dmg;
     public float a1dmg;
 
-    //Stat setup (might change later)
+    //Stat setup
     public int strength;
     public int agility;
     public int intelligence;
@@ -20,7 +20,6 @@ public class enemyClassScript : MonoBehaviour
 
     //extra setup for referencing
     public int enemyClassNum;
-    public int unitNum;
 
     //setup for UI holder
     public GameObject enemyUI;
@@ -41,7 +40,7 @@ public class enemyClassScript : MonoBehaviour
                 engagedRange = 7.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
-                a1dmg = 30;
+                a1dmg = 20;
                 break;
             case 1: //enemyPriest
                 strength = Random.Range(5, 7);
@@ -65,7 +64,7 @@ public class enemyClassScript : MonoBehaviour
                 engagedRange = 8.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
-                a1dmg = 30;
+                a1dmg = 20;
                 break;
             case 3: //enemyRogue
                 strength = Random.Range(6, 8);
@@ -77,7 +76,7 @@ public class enemyClassScript : MonoBehaviour
                 engagedRange = 7.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
-                a1dmg = 30;
+                a1dmg = 20;
                 break;
             case 4: //enemyMarksman
                 strength = Random.Range(2, 5);
@@ -89,7 +88,7 @@ public class enemyClassScript : MonoBehaviour
                 engagedRange = 10.0f;
                 initiative = Random.Range(1, 11) + agility;
                 w1dmg = 30;
-                a1dmg = 30;
+                a1dmg = 20;
                 break;
         }
     }

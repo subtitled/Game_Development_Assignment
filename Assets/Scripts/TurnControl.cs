@@ -61,6 +61,7 @@ public class TurnControl : MonoBehaviour
     void Start()
     {
         turnsText.text = "Turn: " + 1;
+        // Triggers the spawning of player and enemy characters.
         spawnPoints = GameObject.Find("spawnPoints");
         spawnPoints.GetComponent<spawning>().PlayerSpawn();
         enemySpawns = GameObject.Find("enemySpawns");
@@ -69,25 +70,25 @@ public class TurnControl : MonoBehaviour
         // Imports player and enemy characters.
         enemyCharacters = GameObject.FindGameObjectsWithTag("Enemy");
         playerCharacters = GameObject.FindGameObjectsWithTag("Player");
-
+        // Stores team size.
         pTeamSize = playerCharacters.Length;
         eTeamSize = enemyCharacters.Length;
 
 
+        // Add enemy characters to initiativeOrder for ordering.
         if (enemyCharacters.Length > 0)
         {
             foreach (GameObject character in enemyCharacters)
             {
-                // Add enemy characters to initiativeOrder for ordering.
                 initiativeOrder.Add(character);
             }
         }
         
+        // Add player characters to initiativeOrder for ordering.
         if (playerCharacters.Length > 0)
         {
             foreach (GameObject character in playerCharacters)
             {
-                // Add player characters to initiativeOrder for ordering.
                 initiativeOrder.Add(character);
             }
         }
@@ -97,32 +98,40 @@ public class TurnControl : MonoBehaviour
         {
             initiativeOrder.Sort(delegate(GameObject o, GameObject o1)
             {
-                float oInit = 0f;
-                float o1Init = 0f;
+                int oInit;
+                int o1Init;
                 
                 // Confirms if enemy or player.
                 if (o.CompareTag("Enemy"))
                 {
-                    oInit += o.GetComponent<enemyFSM>().initiative;
+                    oInit = o.GetComponent<enemyFSM>().initiative;
                 }
-                else if (o.CompareTag("Player"))
+                if (o.CompareTag("Player"))
                 {
-                    oInit += o.GetComponent<classScript>().initiative;
+                    oInit = o.GetComponent<classScript>().initiative;
+                }
+                else
+                {
+                    oInit = 0;
                 }
                 
                 // Confirms if enemy or player.
                 if (o1.CompareTag("Enemy"))
                 {
-                    o1Init += o1.GetComponent<enemyFSM>().initiative;
+                    o1Init = o1.GetComponent<enemyFSM>().initiative;
                 }
-                else if (o1.CompareTag("Player"))
+                if (o1.CompareTag("Player"))
                 {
-                    o1Init += o1.GetComponent<classScript>().initiative;
+                    o1Init = o1.GetComponent<classScript>().initiative;
+                }
+                else
+                {
+                    o1Init = 0;
                 }
                 
                 return (oInit.CompareTo(o1Init));
             });
-            // Reverses order, so highest initiatives first.
+            // Reverses order, so highest initiatives are first.
             initiativeOrder.Reverse();
         }
         
@@ -319,6 +328,7 @@ public class TurnControl : MonoBehaviour
 
     public void ApplyDefeatState()
     {
+        // Reciever for the Give-up button.
         currState = FSMturn.Defeat;
     }
     
